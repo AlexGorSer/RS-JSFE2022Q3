@@ -29,7 +29,8 @@
 .pets__header li:hover {
   color: #F9804B;
 }
-.pets__header li:first-child {
+
+.active {
   color: #F9804B;
 }
 
@@ -41,9 +42,90 @@
   padding-left: 438px;
 }
 
+.petstory__watch {
+  background: url(../../assets/img/Giant\ Panda.jpg);
+}
+
+.pets__content {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+}
+
+.orange__cirkal {
+  position: absolute;
+  width: 465px;
+  height: 465px;
+  border-radius: 50%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+
+.petstory__watch-favotite {
+  display: flex;
+  flex-direction: column;
+  width: 500.31px;
+  align-items: flex-start;
+  padding-right: 220px;
+  padding-top: 89px;
+  border-radius: 50%;
+}
+
+.petstory__name {
+  z-index: 1;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 106.496px;
+  line-height: 75%;
+  /* or 80px */
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.petstory__name {
+  padding: 0px 0px 60px 0px;
+  margin: 0px;
+}
+
+.color_orange {
+  color: #FFEE2E;
+}
+
+.petstory__watch-button {
+  background-color: #FE9013;
+}
+
+.petstory__watch-button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  width: 298px;
+  padding: 16px;
+  margin-bottom: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  align-self: center;
+  color: #FFFFFF;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 25px;
+}
+
+.petstory__watch-button:hover {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "Roboto";
   src: url(../../assets/fonts/Roboto-Medium.ttf);
   font-style: normal;
   font-weight: 500;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(../../assets/fonts/Roboto-Bold.ttf);
+  font-style: normal;
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */
