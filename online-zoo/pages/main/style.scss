@@ -1,0 +1,55 @@
+.wrapper {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+.pets__header {
+    height: 80px;
+    display: flex;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: white;
+    background-color: black;
+
+    align-items: center;
+
+    .pets__nav {
+        display: flex;
+    }
+
+    ul {
+        display: flex;
+        gap: 58px;
+        list-style-type: none;
+    }
+
+    li {
+        cursor: pointer;
+    }
+
+    li:hover {
+        color: #F9804B;
+    }
+
+    li:first-child {
+        color: #F9804B;
+    }
+}
+
+.pets__icon {
+    padding: 14px 63px 14px 220px;
+}
+
+.pets__designer {
+    padding-left: 438px;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../../assets/fonts/Roboto-Medium.ttf);
+    font-style: normal;
+    font-weight: 500;
+}
