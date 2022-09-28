@@ -1,6 +1,15 @@
 .wrapper {
-  width: 1600px;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.section__wrapper {
+  margin: 0 auto;
+  max-width: 1160px;
+}
+
+.petstory__conteiner {
+  background-color: black;
 }
 
 .pets__header {
@@ -13,6 +22,7 @@
   line-height: 140%;
   color: white;
   background-color: black;
+  justify-content: space-between;
   align-items: center;
 }
 .pets__header .pets__nav {
@@ -34,16 +44,10 @@
   color: #F9804B;
 }
 
-.pets__icon {
-  padding: 14px 63px 14px 220px;
-}
-
-.pets__designer {
-  padding-left: 438px;
-}
-
 .petstory__watch {
-  background: url(../../assets/img/Giant\ Panda.jpg);
+  background: url(../../assets/img/Giant\ Panda.jpg) no-repeat center;
+  background-size: cover;
+  background-position: 1px -79px;
 }
 
 .pets__content {
@@ -58,6 +62,8 @@
   height: 465px;
   border-radius: 50%;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  top: 15px;
+  right: 315px;
 }
 
 .petstory__watch-favotite {
@@ -68,6 +74,7 @@
   padding-right: 220px;
   padding-top: 89px;
   border-radius: 50%;
+  position: relative;
 }
 
 .petstory__name {
@@ -109,19 +116,30 @@
   text-transform: uppercase;
   align-self: center;
   color: #FFFFFF;
+  transition: all 0.5s ease;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   border-radius: 25px;
 }
 
 .petstory__watch-button:hover {
   cursor: pointer;
+  background: #000000;
+}
+
+.petstory__watch-button:active {
+  background: green;
+}
+
+.backstage {
+  overflow: hidden;
+  position: relative;
 }
 
 .backstage__conteiner {
   display: flex;
   padding: 140px 0px 180px 0px;
   gap: 87px;
-  width: 1161px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -166,6 +184,13 @@
   width: 366px;
   border: solid #FA6F32 1px;
 }
+.backstage__card_style img {
+  transition: transform 1s;
+}
+.backstage__card_style img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 .backstage__card_style_text {
   font-family: "Roboto";
@@ -203,13 +228,130 @@
 }
 
 .backstage__cards {
+  justify-content: space-between;
   display: flex;
   row-gap: 30px;
   -moz-column-gap: 20px;
        column-gap: 20px;
-  width: 1158px;
+  max-width: 1160px;
   flex-wrap: wrap;
   margin: 0 auto;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.backstage__conteiner-img {
+  position: absolute;
+  background: url("../../assets/img/flower_foto1.png") no-repeat;
+  width: 293px;
+  height: 605px;
+  z-index: -1;
+  right: -89px;
+  top: 25px;
+}
+
+.palm__img {
+  position: absolute;
+  background: url("../../assets/img/palm_foto.png") no-repeat;
+  width: 270px;
+  height: 460px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.pets__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button__cards {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 298px;
+  height: 54px;
+  background: #FE9013;
+  border-radius: 25px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  margin-bottom: 116px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  color: #FFFFFF;
+}
+
+.button__cards:hover {
+  background: #000000;
+}
+
+.button__cards:active {
+  background: green;
+}
+
+.cards {
+  position: relative;
+}
+
+.stletzia__img {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: url("../../assets/img/strelitzi1.png");
+  width: 368px;
+  height: 275px;
+}
+
+.button__left {
+  cursor: pointer;
+  left: -80px;
+  top: 415px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  transition: all 0.5s ease;
+}
+
+.button__left:hover {
+  background: #000000;
+}
+
+.button__left:active {
+  background: green;
+}
+
+.button__right {
+  cursor: pointer;
+  top: 415px;
+  right: -70px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+
+.button__right:hover {
+  background: #000000;
+}
+
+.button__right:active {
+  background: green;
 }
 
 @font-face {
