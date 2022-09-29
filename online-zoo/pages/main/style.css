@@ -36,13 +36,17 @@
 .pets__header li {
   cursor: pointer;
 }
-.pets__header li:hover {
+.pets__header a:hover {
   color: #F9804B;
+}
+.pets__header a {
+  text-decoration: none;
+  color: white;
 }
 
 .active {
   cursor: context-menu !important;
-  color: #F9804B;
+  color: #F9804B !important;
 }
 
 .pets__designer a {
@@ -53,7 +57,7 @@
 .petstory__watch {
   background: url(../../assets/img/Giant\ Panda.jpg) no-repeat center;
   background-size: cover;
-  background-position: 1px -79px;
+  background-position: 0px -79px;
 }
 
 .pets__content {
@@ -129,11 +133,11 @@
 
 .petstory__watch-button:hover {
   cursor: pointer;
-  background: #000000;
+  background: #E47209;
 }
 
 .petstory__watch-button:active {
-  background: green;
+  background: #4B9200;
 }
 
 .backstage {
@@ -294,11 +298,11 @@
 }
 
 .button__cards:hover {
-  background: #000000;
+  background: #E47209;
 }
 
 .button__cards:active {
-  background: green;
+  background: #4B9200;
 }
 
 .cards {
@@ -330,11 +334,11 @@
 }
 
 .button__left:hover {
-  background: #000000;
+  background: #E47209;
 }
 
 .button__left:active {
-  background: green;
+  background: #4B9200;
 }
 
 .button__right {
@@ -353,11 +357,11 @@
 }
 
 .button__right:hover {
-  background: #000000;
+  background: #E47209;
 }
 
 .button__right:active {
-  background: green;
+  background: #4B9200;
 }
 
 .pickfriend {
@@ -401,6 +405,10 @@
 .orange__line {
   border-bottom: 1px solid #e47209;
   padding-bottom: 2px;
+}
+.orange__line a {
+  text-decoration: none;
+  color: #333B41;
 }
 
 .pick__information1 {
@@ -491,6 +499,10 @@
   top: -35px;
 }
 
+.pick__button-link {
+  text-decoration: none;
+}
+
 .pick__button {
   display: flex;
   justify-content: center;
@@ -514,12 +526,12 @@
 
 .pick__button:hover {
   cursor: pointer;
-  background: #000000;
+  background: #E47209;
 }
 
 .pick__button:hover {
   cursor: pointer;
-  background: green;
+  background: #E47209;
 }
 
 .testimonials__conteiner {
@@ -654,11 +666,11 @@
 }
 
 .testimonials__button:hover {
-  background: #000000;
+  background: #E47209;
 }
 
 .testimonials__button:active {
-  background: green;
+  background: #4B9200;
 }
 
 .testimonials__img {
@@ -696,12 +708,12 @@
 
 .footer__button:hover {
   cursor: pointer;
-  background: #000000;
+  background: #E47209;
 }
 
 .footer__button:active {
   cursor: pointer;
-  background: green;
+  background: #4B9200;
 }
 
 .footer__social {
@@ -715,6 +727,7 @@
   /* or 22px */
   gap: 10px;
   color: #FFFFFF;
+  width: 100px;
 }
 .footer__social div {
   display: flex;
@@ -728,6 +741,10 @@
   height: 26px;
   background: rgba(196, 196, 196, 0.5);
   border-radius: 50%;
+}
+.footer__social a {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .footer__conteiner {
@@ -756,11 +773,16 @@
   padding: 0px;
 }
 .footer__link li {
+  cursor: pointer;
   list-style-type: none;
   color: #FFFFFF;
 }
-.footer__link li:first-child {
-  color: #e47209;
+.footer__link a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.footer__link a:hover {
+  color: #E47209;
 }
 
 .footer__subs-news h4 {
