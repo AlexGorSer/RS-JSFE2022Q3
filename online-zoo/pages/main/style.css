@@ -41,7 +41,13 @@
 }
 
 .active {
+  cursor: context-menu !important;
   color: #F9804B;
+}
+
+.pets__designer a {
+  text-decoration: none;
+  color: white;
 }
 
 .petstory__watch {
@@ -783,9 +789,20 @@
   color: #BDBDBD;
 }
 
+.enter_email:invalid + .button__enter {
+  border: 1px solid red;
+  color: red;
+}
+
+.enter_email:invalid {
+  border: 1px solid red;
+}
+
 .enter {
   display: flex;
   gap: 10px;
+  justify-content: center;
+  align-content: center;
 }
 
 .button__enter {
@@ -804,6 +821,7 @@
   font-size: 16px;
   line-height: 140%;
   /* or 22px */
+  cursor: pointer;
   /* Green */
   color: #4B9200;
 }
@@ -824,6 +842,44 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.pets__icon {
+  width: 82px;
+  height: 52px;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  position: relative;
+}
+.pets__icon a {
+  text-decoration: none;
+}
+
+.bamboo {
+  position: absolute;
+  left: 13px;
+  bottom: 5px;
+  background: url(../../assets/img/svg/bamboo.svg) no-repeat;
+  width: 10.03px;
+  height: 20.98px;
+}
+
+.logo__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.55px 4.75px;
+}
+.logo__name h1 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.0145px;
+  line-height: 120%;
+  /* or 23px */
+  margin: 0px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 @font-face {
