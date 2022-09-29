@@ -664,6 +664,168 @@
   bottom: 0px;
 }
 
+.footer {
+  background-color: #000000;
+}
+
+.footer__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 298px;
+  height: 54px;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  margin-bottom: 44px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.footer__button:hover {
+  cursor: pointer;
+  background: #000000;
+}
+
+.footer__button:active {
+  cursor: pointer;
+  background: green;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  gap: 10px;
+  color: #FFFFFF;
+}
+.footer__social div {
+  display: flex;
+  align-items: center;
+  width: 111px;
+  height: 26px;
+  gap: 12px;
+}
+.footer__social img {
+  width: 26px;
+  height: 26px;
+  background: rgba(196, 196, 196, 0.5);
+  border-radius: 50%;
+}
+
+.footer__conteiner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.footer__img {
+  padding-bottom: 68px;
+}
+
+.footer__donate {
+  padding-top: 41px;
+  padding-bottom: 50px;
+}
+
+.footer__link {
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 50px;
+}
+.footer__link ul {
+  display: flex;
+  gap: 58px;
+  padding: 0px;
+}
+.footer__link li {
+  list-style-type: none;
+  color: #FFFFFF;
+}
+.footer__link li:first-child {
+  color: #e47209;
+}
+
+.footer__subs-news h4 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  /* identical to box height, or 29px */
+  color: #FFFFFF;
+}
+
+.enter_email {
+  width: 228px;
+  height: 42px;
+  border: 1px solid #e47209;
+  border-radius: 2px;
+  background: #111115;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  /* Gray 4 */
+  color: #BDBDBD;
+}
+
+.enter {
+  display: flex;
+  gap: 10px;
+}
+
+.button__enter {
+  width: 129px;
+  height: 42px;
+  background: #F1F3F2;
+  /* Green */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #4B9200;
+  border-radius: 5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  /* Green */
+  color: #4B9200;
+}
+
+.footer__subs-designer {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 130%;
+  /* identical to box height, or 21px */
+  align-self: flex-end;
+  color: #FFFFFF;
+  margin-bottom: 50px;
+}
+
+.footer__subs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @font-face {
   font-family: "Roboto";
   src: url(../../assets/fonts/Roboto-Medium.ttf);
