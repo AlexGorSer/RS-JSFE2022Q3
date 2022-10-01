@@ -1,3 +1,7 @@
+html {
+  font-size: 10px;
+}
+
 .wrapper {
   margin: 0 auto;
   overflow: hidden;
@@ -5,7 +9,7 @@
 
 .section__wrapper {
   margin: 0 auto;
-  max-width: 1160px;
+  max-width: 116rem;
 }
 
 .petstory__conteiner {
@@ -13,12 +17,12 @@
 }
 
 .pets__header {
-  height: 80px;
+  height: 8rem;
   display: flex;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 140%;
   color: white;
   background-color: black;
@@ -30,7 +34,7 @@
 }
 .pets__header ul {
   display: flex;
-  gap: 58px;
+  gap: 5.8rem;
   list-style-type: none;
 }
 .pets__header li {
@@ -54,11 +58,11 @@
 
 .bamboo {
   position: absolute;
-  left: 13px;
-  bottom: 5px;
+  left: 1.3rem;
+  bottom: 0.5rem;
   background: url(../../assets/img/svg/bamboo.svg) no-repeat;
-  width: 10.03px;
-  height: 20.98px;
+  width: 1rem;
+  height: 2.1rem;
 }
 
 .logo__name {
@@ -71,7 +75,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 19.0145px;
+  font-size: 1.9rem;
   line-height: 120%;
   /* or 23px */
   margin: 0px;
@@ -80,10 +84,10 @@
 }
 
 .pets__icon {
-  width: 82px;
-  height: 52px;
+  width: 8.2rem;
+  height: 5.2rem;
   border: 1px solid #FFFFFF;
-  border-radius: 2px;
+  border-radius: 0.2rem;
   position: relative;
 }
 .pets__icon a {
@@ -103,17 +107,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 298px;
-  height: 54px;
+  width: 29.8rem;
+  height: 5.4rem;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 140%;
   /* or 22px */
-  margin-bottom: 44px;
+  margin-bottom: 4.4rem;
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -135,23 +139,23 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 140%;
   /* or 22px */
-  gap: 10px;
+  gap: 1rem;
   color: #FFFFFF;
-  width: 100px;
+  width: 10rem;
 }
 .footer__social div {
   display: flex;
   align-items: center;
-  width: 111px;
-  height: 26px;
-  gap: 12px;
+  width: 11.1rem;
+  height: 2.6rem;
+  gap: 1.2rem;
 }
 .footer__social img {
-  width: 26px;
-  height: 26px;
+  width: 2.6rem;
+  height: 2.6rem;
   background: rgba(196, 196, 196, 0.5);
   border-radius: 50%;
 }
@@ -161,31 +165,36 @@
 }
 
 .footer__conteiner {
-  max-width: 1160px;
+  max-width: 116rem;
   margin: 0 auto;
   display: flex;
 }
 
 .footer__img {
-  padding-bottom: 68px;
+  padding-bottom: 6.8rem;
 }
 
 .footer__donate {
-  padding-top: 41px;
-  padding-bottom: 50px;
+  padding-top: 4.1rem;
+  padding-bottom: 5rem;
 }
 
 .footer__link {
   display: flex;
   align-self: flex-end;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 }
 .footer__link ul {
   display: flex;
-  gap: 58px;
+  gap: 5.8rem;
   padding: 0px;
 }
 .footer__link li {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 140%;
   cursor: pointer;
   list-style-type: none;
   color: #FFFFFF;
@@ -202,22 +211,22 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 120%;
   /* identical to box height, or 29px */
   color: #FFFFFF;
 }
 
 .enter_email {
-  width: 228px;
-  height: 42px;
+  width: 22.8rem;
+  height: 4.2rem;
   border: 1px solid #e47209;
   border-radius: 2px;
   background: #111115;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 140%;
   /* or 22px */
   /* Gray 4 */
@@ -235,25 +244,25 @@
 
 .enter {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   justify-content: center;
   align-content: center;
 }
 
 .button__enter {
-  width: 129px;
-  height: 42px;
+  width: 12.9rem;
+  height: 4.2rem;
   background: #F1F3F2;
   /* Green */
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #4B9200;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 140%;
   /* or 22px */
   cursor: pointer;
@@ -263,25 +272,24 @@
 
 .petstory__watch {
   background: url(../../assets/img/Giant\ Panda.jpg) no-repeat;
-  height: 390px;
+  height: 39rem;
   background: url(../../assets/img/Giant\ Panda.jpg) no-repeat center;
   background-position-x: center;
   background-position-y: center;
   background-size: auto;
   background-size: cover;
-  background-position: 0px -79px;
 }
 
 .footer__subs-designer {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 100;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 130%;
   /* identical to box height, or 21px */
   align-self: flex-end;
   color: #FFFFFF;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 }
 
 .footer__subs {
