@@ -8,6 +8,10 @@ html {
     overflow: hidden;
 }
 
+.footer__conteiner320 {
+    display: none;
+}
+
 .section__wrapper {
     margin: 0 auto;
     max-width: 116rem;
@@ -1667,6 +1671,321 @@ html {
     .petstory__watch {
         background-position: -71px -4.3rem;
     }
+
+}
+
+@media screen and (max-width: 604px) {
+    .section__wrapper {
+        max-width: 32rem;
+    }
+
+    .logo__name h1 {
+        margin-right: 20px;
+    }
+
+    .bamboo {
+        left: 13px;
+    }
+
+    .burger__menu {
+        margin-right: 10px;
+        margin-bottom: 1px;
+    }
+
+    .orange__cirkal {
+        width: 119.09px;
+        height: 119.09px;
+        right: 3.9rem;
+        top: 7px;
+    }
+
+    .petstory__name {
+        font-size: 28px;
+        line-height: 75%;
+        width: 128.13px;
+        height: 102.44px;
+    }
+
+    .petstory__watch-button {
+        margin-bottom: 3.9rem;
+        bottom: -70px;
+        margin-left: 10px;
+    }
+
+    .petstory__watch-favotite {
+        width: 128.13px;
+        height: 102.44px;
+        padding-right: 3rem;
+        padding-top: 2rem;
+    }
+
+
+    .backstage__text h2 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: #333B41;
+        padding: 0px 0px 1rem 0px;
+    }
+
+    .backstage__text p {
+        font-size: 16px;
+        line-height: 140%;
+        margin-right: 0px;
+    }
+
+    .backstage__conteiner {
+        max-width: 300px;
+        margin-left: 10px;
+        padding: 6rem 0px 6rem 0px;
+    }
+
+    .backstage__text h3 {
+        padding-top: 18px;
+        padding-bottom: 7px;
+    }
+
+    .backstage__conteiner-img {
+        right: -7rem;
+        top: -0.4rem;
+        width: 105px;
+        height: 217px;
+        background: url(../../assets/img/flower_foto320.png) no-repeat;
+    }
+
+    .backstage__card_style {
+        width: 285px;
+        height: 332px;
+    }
+
+    .backstage__cards {
+        max-width: 30rem;
+        row-gap: 2rem;
+        padding-bottom: 1.6rem;
+    }
+
+    .button__left {
+        display: none;
+    }
+
+    .button__right {
+        display: none;
+    }
+
+    .button__cards {
+        margin-bottom: 5.8rem;
+    }
+
+    .palm__img {
+        width: 7rem;
+        height: 7rem;
+        background: url(../../assets/img/palm_foto320.png) no-repeat;
+    }
+
+    .stletzia__img {
+        width: 68px;
+        height: 67px;
+        background: url(../../assets/img/strelitzia320.png) no-repeat;
+    }
+
+    .pick-friend-text h2 {
+        padding-bottom: 12px;
+        font-size: 24px;
+        line-height: 120%;
+        padding-top: 20px;
+    }
+
+    .pick__information1 {
+        text-align: center;
+        font-size: 18px;
+        line-height: 120%;
+        margin-bottom: 0px;
+    }
+
+    .pick__information2 {
+        display: none;
+    }
+
+    .pick__information3 {
+        display: none;
+    }
+
+    .pick-friend__how h3 {
+        font-size: 24px;
+        line-height: 120%;
+        margin-top: 20px;
+    }
+
+    .how-cards__conteiner {
+        gap: 2rem;
+        margin-right: 5px;
+        flex-direction: column;
+    }
+
+    .how-card {
+        width: 168px;
+        height: 224px;
+    }
+
+    .how-card p {
+        padding: 1rem 0px 0rem 0px;
+    }
+
+    .arrow-a {
+        top: 191px;
+        left: 142px;
+        transform: rotate(84.06deg);
+    }
+
+    .arrow-b {
+        top: 440px;
+        right: -62px;
+        transform: rotate(84.06deg);
+    }
+
+    .pick-friend__conteiner {
+        width: 300px;
+        margin: auto;
+    }
+
+    .pick__button {
+        margin: 4rem 0px 4.3rem 0px;
+    }
+
+    .testimonials__conteiner {
+        padding-top: 0rem;
+        padding-bottom: 6rem;
+    }
+
+    .testimonials__title {
+        margin-top: 30px;
+        font-size: 24px;
+        line-height: 120%;
+        padding-bottom: 2rem;
+
+    }
+
+    .testimonials__card-title {
+        padding-top: 10px;
+        padding-left: 12px;
+    }
+
+    .testimonials__card {
+        height: 109px;
+        width: 299px;
+    }
+
+    .testimonials__cards {
+        gap: 15px;
+    }
+
+    .testimonials__card-text {
+        width: 252px;
+    }
+
+    .testimonials__button {
+        margin-top: 24px;
+    }
+
+    .testimonials__img {
+        width: 5rem;
+        height: 6.4rem;
+        background: url(../../assets/img/leav_foto320.png) no-repeat;
+    }
+
+    .footer__conteiner {
+        display: none;
+        max-width: 30rem;
+    }
+
+    .footer__conteiner320 {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 19.0145px;
+            line-height: 120%;
+            /* identical to box height, or 23px */
+
+            text-align: center;
+
+            color: #FFFFFF;
+
+            // border: 1.18841px solid #FFFFFF;
+        }
+    }
+
+    .footer__link {
+        margin-left: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .footer__social {
+        flex-direction: row;
+        position: relative;
+        gap: 3rem;
+        right: 26%;
+        margin-top: 12px;
+
+        div {
+            width: 2.6rem;
+            height: 2.6rem;
+        }
+    }
+
+    .footer__button {
+        margin-top: 33px;
+        left: -2px;
+        margin-bottom: 28px;
+    }
+
+    .footer__subs-designer {
+        margin-right: 10px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 15px;
+        line-height: 120%;
+        /* identical to box height, or 18px */
+
+
+        color: #FFFFFF;
+    }
+
+    .footer__link ul {
+        gap: 3rem;
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    .footer__link {
+        align-self: auto;
+        margin-bottom: 20px;
+    }
+
+    .footer__subs-designer {
+        margin-bottom: 23px;
+    }
+
+    .footer__title320 {
+        position: relative;
+    }
+
+    .bambook {
+        position: absolute;
+        left: 70px;
+        top: 15px;
+    }
+
 
 }
 
