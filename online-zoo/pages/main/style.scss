@@ -8,6 +8,10 @@ html {
     overflow: hidden;
 }
 
+.footer__conteiner320 {
+    display: none;
+}
+
 .section__wrapper {
     margin: 0 auto;
     max-width: 116rem;
@@ -15,6 +19,25 @@ html {
 
 .petstory__conteiner {
     background-color: black;
+}
+
+.arrow-640 {
+    display: none;
+}
+
+.burger__menu {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18px;
+    height: 10px;
+    margin-right: 20px;
+    margin-bottom: 2px;
+
+    div {
+        border: 1px solid white;
+    }
 }
 
 .pets__header {
@@ -81,7 +104,9 @@ html {
 
 .pets__content {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    // justify-content: flex-end;
+    align-items: flex-end;
     padding-top: 1.4rem;
 }
 
@@ -1059,6 +1084,919 @@ html {
     }
 
 }
+
+@media screen and (max-width: 1519px) {
+
+    .petstory__conteiner {
+        z-index: 9;
+        position: relative;
+    }
+
+    .pets__icon {
+        margin-left: 15px;
+    }
+
+    .orange__cirkal {
+        width: 367px;
+        height: 367px;
+        top: -2.5rem;
+        right: 17.8rem;
+    }
+
+    .petstory__name {
+        font-size: 8.5rem;
+        padding: 0px 0px 4rem 0px;
+    }
+
+    .petstory__watch-favotite {
+        padding-right: 3.6rem;
+        padding-top: 3rem;
+    }
+
+    .pets__header ul {
+        gap: 4.8rem;
+    }
+
+    .pets__designer {
+        p {
+            margin-right: 30px;
+        }
+    }
+
+    .petstory__watch-button {
+        margin-bottom: 11.6rem;
+        align-self: flex-end;
+        margin-right: 133px;
+    }
+
+    .backstage__conteiner-img {
+        display: none;
+    }
+
+    .backstage__conteiner {
+        gap: 31px;
+        padding: 3rem 0px 14rem 0px;
+        max-width: 950px;
+
+        img {
+            width: 455px;
+            height: 408px;
+        }
+    }
+
+    .backstage__img {
+        display: none;
+    }
+
+    .backstage__img-back {
+        width: 476px;
+        height: 424px;
+        background: url(../../assets/img/bamboo-cap-1000px.png) no-repeat;
+        padding-left: 38%;
+        background-position: 5px 1.1rem;
+    }
+
+    .backstage__text {
+        justify-content: normal;
+
+        h2 {
+            font-size: 48px;
+        }
+
+        p {
+            line-height: 140%;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+    }
+
+    .backstage__cards {
+        max-width: 96rem;
+        column-gap: 2.9rem;
+        justify-content: normal;
+        row-gap: 9.2rem;
+
+    }
+
+    .backstage__card_style {
+        width: 294px;
+    }
+
+    .button__left {
+        left: 32.6rem;
+        top: 36.9rem;
+    }
+
+    .button__right {
+        top: 36.9rem;
+        right: 33.9rem;
+    }
+
+    .backstage__card_style_text {
+        padding-top: 0.6rem;
+    }
+
+    .button__cards {
+        margin-bottom: 14rem;
+        margin-left: 0rem;
+    }
+
+    .palm__img {
+        background: url(../../assets/img/palm_foto1000.png) no-repeat;
+        width: 20rem;
+        height: 20rem;
+
+    }
+
+    .stletzia__img {
+        background: url(../../assets/img/strelitzia\ 1000.png) no-repeat;
+        width: 24rem;
+        height: 18rem;
+    }
+
+    .pick-friend__wrapper {
+        max-width: 94rem;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .pick-friend-text {
+        padding: 0px 4.8rem 0rem 4.3rem;
+
+        h2 {
+            padding: 0px;
+            padding-bottom: 20px;
+            padding-top: 30px;
+            margin-right: 10px;
+        }
+    }
+
+    .pick__information1 {
+        margin-bottom: 2rem;
+    }
+
+    .pick__information2 {
+        margin-right: 35px;
+    }
+
+    .pick-friend__how h3 {
+        margin-top: 4rem;
+        margin-right: 15px;
+    }
+
+    .how-cards__conteiner {
+        margin-right: 20px;
+    }
+
+    .pick__button {
+        margin: 7.5rem 16px 5rem 0px;
+    }
+
+    .testimonials__conteiner {
+        max-width: 94rem;
+        padding-top: 10rem;
+        padding-bottom: 14rem;
+    }
+
+    .testimonials__title {
+        padding-bottom: 3rem;
+        margin: 0px;
+    }
+
+    .testimonials__card {
+        width: 293px;
+        height: 391px;
+    }
+
+    .fix__none {
+        display: none;
+    }
+
+    .testimonials__cards {
+        gap: 3rem;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    .testimonials__line {
+        width: 39rem;
+        margin-right: 30px;
+        margin-bottom: 5.2rem;
+    }
+
+    .line {
+        width: 75px;
+    }
+
+    .testimonials__button {
+        margin-left: 0px;
+    }
+
+    .testimonials__img {
+        background: url(../../assets/img/leav_foto1000.png) no-repeat;
+        width: 19.6rem;
+        height: 24rem;
+    }
+
+    .footer__conteiner {
+        max-width: 94rem;
+
+    }
+
+    .footer__donate {
+        margin-left: 0px;
+
+    }
+
+    .footer__link {
+        margin-left: -0.7rem;
+        margin-bottom: 5rem;
+
+        ul {
+            gap: 4.8rem;
+        }
+    }
+
+
+
+    .footer__subs-news {
+        position: relative;
+        right: 90px;
+    }
+
+    .footer__subs-designer {
+        margin-right: 65px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .petstory__watch {
+        background-position: -87px -6.9rem;
+    }
+}
+
+@media screen and (max-width: 966px) {
+    .petstory__watch {
+        background-position: 0px;
+    }
+
+}
+
+@media screen and (max-width: 955px) {
+    .pets__header {
+        height: 34px;
+        padding: 0px;
+    }
+
+    .pets__icon {
+        border: 0px solid #FFFFFF;
+        margin: 0px;
+
+    }
+
+    .pets__nav {
+        nav {
+            display: none;
+        }
+    }
+
+    .pets__designer {
+        display: none;
+    }
+
+    .logo__name h1 {
+        font-size: 12.2899px;
+        line-height: 120%;
+        margin-top: 8px;
+        margin-left: 4px;
+    }
+
+    .bamboo {
+        width: 4.54px;
+        height: 13.56px;
+        left: 22px;
+        bottom: 13px;
+    }
+
+    .section__wrapper {
+        max-width: 64rem;
+    }
+
+    .burger__menu {
+        display: flex;
+    }
+
+    .petstory__name {
+        font-size: 54.2894px;
+        line-height: 75%;
+        width: 255.64px;
+        height: 204.38px;
+        padding: 0px 0px 0rem 0px;
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .orange__cirkal {
+        width: 237.6px;
+        height: 237.6px;
+        right: 7rem;
+        top: -3px;
+    }
+
+    .petstory__watch-button {
+        align-self: flex-start;
+        margin-left: 17px;
+        margin-bottom: 7.4rem;
+        position: relative;
+        bottom: 9px;
+    }
+
+    .petstory__watch-favotite {
+        width: 255.64px;
+    }
+
+
+
+    .backstage__img-back {
+        display: none;
+    }
+
+    .backstage__conteiner-img {
+        display: block;
+        width: 231px;
+        height: 476px;
+        background: url(../../assets/img/flower_foto640.png) no-repeat;
+        right: -10rem;
+        top: -5rem;
+    }
+
+    .backstage__text {
+        height: 367px;
+        width: 495px;
+
+        h3 {
+            padding: 2.3rem 0px 2.4rem 0px;
+        }
+    }
+
+    .backstage__conteiner {
+        padding: 2rem 0px 8rem 0px;
+        margin-left: 24px;
+    }
+
+    .backstage__card_style {
+        width: 285px;
+        height: 332px;
+    }
+
+    .backstage__cards {
+        max-width: 62rem;
+        column-gap: 3rem;
+        row-gap: 9rem;
+        padding-bottom: 5.6rem;
+    }
+
+    .button__left {
+        left: 22.6rem;
+        top: 33.9rem;
+    }
+
+    .button__right {
+        top: 33.9rem;
+        right: 23.9rem;
+    }
+
+    .backstage__card_style_text {
+        padding-bottom: 0px;
+        padding-top: 0px;
+
+        h3 {
+            font-size: 12.4695px;
+            line-height: 140%;
+        }
+
+        p {
+            font-size: 11.6901px;
+            line-height: 120%;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .palm__img {
+        background: url(../../assets/img/palm_foto640.png) no-repeat;
+    }
+
+    .stletzia__img {
+        background: url(../../assets/img/strelitzia640.png) no-repeat;
+        width: 17.5rem;
+        height: 12.9rem;
+    }
+
+    .button__cards {
+        margin-bottom: 10rem;
+    }
+
+    .pick-friend__conteiner {
+        left: 0rem;
+    }
+
+    .pick-friend__wrapper {
+        padding-top: 2rem;
+        padding-bottom: 1.8rem;
+    }
+
+    .pick-friend-text {
+        padding: 0px 2rem 0rem 2rem;
+    }
+
+    .pick-friend-text h2 {
+        padding-top: 10px;
+        font-size: 42px;
+        line-height: 120%;
+        margin-right: -5px;
+    }
+
+    .pick__information1 {
+        font-size: 22px;
+        line-height: 120%;
+    }
+
+    .pick__information2 {
+        margin-right: 0px;
+    }
+
+    .pick-friend__how h3 {
+        margin-top: 3rem;
+        margin-right: 0px;
+        margin-bottom: 2rem;
+    }
+
+    .pick__button {
+        margin: 4rem 0px 6rem 0px;
+    }
+
+    .how-cards__conteiner {
+        gap: 4.2rem;
+        margin-right: 16px;
+    }
+
+    .arrow-640 {
+        display: flex;
+        position: absolute;
+    }
+
+    .arrow-a {
+        top: -17px;
+        left: 140px;
+    }
+
+    .arrow-b {
+        top: -18px;
+        right: 152px;
+    }
+
+    .how-cards__conteiner {
+        position: relative;
+    }
+
+    .testimonials__conteiner {
+        max-width: 64rem;
+        padding-top: 6rem;
+    }
+
+    .testimonials__card {
+        height: 109px;
+        width: 600px;
+        border: double 1px transparent;
+    }
+
+    .testimonials__cards {
+        flex-direction: column;
+        gap: 1.3rem;
+        max-width: 600px;
+
+    }
+
+    .testimonials__card-text {
+        width: 553px;
+        height: 38px;
+        margin: 0px 1.5rem 0.8rem 1.8rem;
+    }
+
+    .testimonials__line {
+        display: none;
+    }
+
+    .testimonials__button {
+        align-self: center;
+        width: 23.8rem;
+        margin-top: 39px;
+    }
+
+    .testimonials__conteiner {
+        padding-bottom: 8rem;
+    }
+
+    .footer__donate {
+        padding-top: 1rem;
+        padding-bottom: 0rem;
+    }
+
+    .footer__conteiner {
+        max-width: 60rem;
+        padding-bottom: 88px;
+    }
+
+    .footer__button {
+        left: 0px;
+
+    }
+
+    .footer__img {
+        padding-bottom: 3.6rem;
+    }
+
+    .footer__subs-news {
+        display: none;
+    }
+
+    .footer__social {
+
+        p {
+            display: none;
+        }
+    }
+
+    .footer__link ul {
+        gap: 3.7rem;
+    }
+
+    .footer__link {
+        margin-left: -30rem;
+        margin-bottom: -7.6rem;
+    }
+
+    .footer__subs {
+        left: 67px;
+        top: 219px;
+    }
+
+    .testimonials__img {
+        width: 11.6rem;
+        height: 13.4rem;
+        background: url(../../assets/img/leav_foto640.png) no-repeat;
+    }
+
+    .footer__social {
+        position: absolute;
+        top: 4%;
+        right: -1%;
+        gap: 2rem;
+        width: 3rem;
+    }
+
+    .footer__conteiner {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .petstory__watch {
+        background-position: -71px -4.3rem;
+    }
+
+}
+
+@media screen and (max-width: 604px) {
+    .section__wrapper {
+        max-width: 32rem;
+    }
+
+    .logo__name h1 {
+        margin-right: 20px;
+    }
+
+    .bamboo {
+        left: 13px;
+    }
+
+    .burger__menu {
+        margin-right: 10px;
+        margin-bottom: 1px;
+    }
+
+    .orange__cirkal {
+        width: 119.09px;
+        height: 119.09px;
+        right: 3.9rem;
+        top: 7px;
+    }
+
+    .petstory__name {
+        font-size: 28px;
+        line-height: 75%;
+        width: 128.13px;
+        height: 102.44px;
+    }
+
+    .petstory__watch-button {
+        margin-bottom: 3.9rem;
+        bottom: -70px;
+        margin-left: 10px;
+    }
+
+    .petstory__watch-favotite {
+        width: 128.13px;
+        height: 102.44px;
+        padding-right: 3rem;
+        padding-top: 2rem;
+    }
+
+
+    .backstage__text h2 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: #333B41;
+        padding: 0px 0px 1rem 0px;
+    }
+
+    .backstage__text p {
+        font-size: 16px;
+        line-height: 140%;
+        margin-right: 0px;
+    }
+
+    .backstage__conteiner {
+        max-width: 300px;
+        margin-left: 10px;
+        padding: 6rem 0px 6rem 0px;
+    }
+
+    .backstage__text h3 {
+        padding-top: 18px;
+        padding-bottom: 7px;
+    }
+
+    .backstage__conteiner-img {
+        right: -7rem;
+        top: -0.4rem;
+        width: 105px;
+        height: 217px;
+        background: url(../../assets/img/flower_foto320.png) no-repeat;
+    }
+
+    .backstage__card_style {
+        width: 285px;
+        height: 332px;
+    }
+
+    .backstage__cards {
+        max-width: 30rem;
+        row-gap: 2rem;
+        padding-bottom: 1.6rem;
+    }
+
+    .button__left {
+        display: none;
+    }
+
+    .button__right {
+        display: none;
+    }
+
+    .button__cards {
+        margin-bottom: 5.8rem;
+    }
+
+    .palm__img {
+        width: 7rem;
+        height: 7rem;
+        background: url(../../assets/img/palm_foto320.png) no-repeat;
+    }
+
+    .stletzia__img {
+        width: 68px;
+        height: 67px;
+        background: url(../../assets/img/strelitzia320.png) no-repeat;
+    }
+
+    .pick-friend-text h2 {
+        padding-bottom: 12px;
+        font-size: 24px;
+        line-height: 120%;
+        padding-top: 20px;
+    }
+
+    .pick__information1 {
+        text-align: center;
+        font-size: 18px;
+        line-height: 120%;
+        margin-bottom: 0px;
+    }
+
+    .pick__information2 {
+        display: none;
+    }
+
+    .pick__information3 {
+        display: none;
+    }
+
+    .pick-friend__how h3 {
+        font-size: 24px;
+        line-height: 120%;
+        margin-top: 20px;
+    }
+
+    .how-cards__conteiner {
+        gap: 2rem;
+        margin-right: 5px;
+        flex-direction: column;
+    }
+
+    .how-card {
+        width: 168px;
+        height: 224px;
+    }
+
+    .how-card p {
+        padding: 1rem 0px 0rem 0px;
+    }
+
+    .arrow-a {
+        top: 191px;
+        left: 142px;
+        transform: rotate(84.06deg);
+    }
+
+    .arrow-b {
+        top: 440px;
+        right: -62px;
+        transform: rotate(84.06deg);
+    }
+
+    .pick-friend__conteiner {
+        width: 300px;
+        margin: auto;
+    }
+
+    .pick__button {
+        margin: 4rem 0px 4.3rem 0px;
+    }
+
+    .testimonials__conteiner {
+        padding-top: 0rem;
+        padding-bottom: 6rem;
+    }
+
+    .testimonials__title {
+        margin-top: 30px;
+        font-size: 24px;
+        line-height: 120%;
+        padding-bottom: 2rem;
+
+    }
+
+    .testimonials__card-title {
+        padding-top: 10px;
+        padding-left: 12px;
+    }
+
+    .testimonials__card {
+        height: 109px;
+        width: 299px;
+    }
+
+    .testimonials__cards {
+        gap: 15px;
+    }
+
+    .testimonials__card-text {
+        width: 252px;
+    }
+
+    .testimonials__button {
+        margin-top: 24px;
+    }
+
+    .testimonials__img {
+        width: 5rem;
+        height: 6.4rem;
+        background: url(../../assets/img/leav_foto320.png) no-repeat;
+    }
+
+    .footer__conteiner {
+        display: none;
+        max-width: 30rem;
+    }
+
+    .footer__conteiner320 {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 19.0145px;
+            line-height: 120%;
+            /* identical to box height, or 23px */
+
+            text-align: center;
+
+            color: #FFFFFF;
+
+            // border: 1.18841px solid #FFFFFF;
+        }
+    }
+
+    .footer__link {
+        margin-left: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .footer__social {
+        flex-direction: row;
+        position: relative;
+        gap: 3rem;
+        right: 26%;
+        margin-top: 12px;
+
+        div {
+            width: 2.6rem;
+            height: 2.6rem;
+        }
+    }
+
+    .footer__button {
+        margin-top: 33px;
+        left: -2px;
+        margin-bottom: 28px;
+    }
+
+    .footer__subs-designer {
+        margin-right: 10px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 100;
+        font-size: 15px;
+        line-height: 120%;
+        /* identical to box height, or 18px */
+
+
+        color: #FFFFFF;
+    }
+
+    .footer__link ul {
+        gap: 3rem;
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    .footer__link {
+        align-self: auto;
+        margin-bottom: 20px;
+    }
+
+    .footer__subs-designer {
+        margin-bottom: 23px;
+    }
+
+    .footer__title320 {
+        position: relative;
+    }
+
+    .bambook {
+        position: absolute;
+        left: 70px;
+        top: 15px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
