@@ -608,8 +608,8 @@ input[type=radio]:checked ~ .donat {
   align-items: center;
   justify-content: center;
   gap: 50px;
-  padding-top: 25px;
-  padding-bottom: 31px;
+  padding-top: 20px;
+  padding-bottom: 27px;
 }
 
 .submit__input {
@@ -677,6 +677,410 @@ input[type=radio]:checked ~ .donat {
   background: #4b9200;
 }
 
+.footer__conteiner320 {
+  display: none;
+}
+
+.burger__menu {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 10px;
+  margin-right: 20px;
+  margin-bottom: 2px;
+}
+.burger__menu div {
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 1519px) {
+  .petstory__conteiner {
+    z-index: 9;
+  }
+  .pets__icon {
+    margin-left: 15px;
+  }
+  .pets__header ul {
+    gap: 4.8rem;
+  }
+  .pets__designer p {
+    margin-right: 30px;
+  }
+  .footer__conteiner {
+    max-width: 94rem;
+  }
+  .footer__donate {
+    margin-left: 0px;
+  }
+  .footer__link {
+    margin-left: -0.7rem;
+    margin-bottom: 5rem;
+  }
+  .footer__link ul {
+    gap: 4.8rem;
+  }
+  .footer__subs-news {
+    position: relative;
+    right: 90px;
+  }
+  .footer__subs-designer {
+    margin-right: 65px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .pick-and-feed__conteiner {
+    max-width: 94rem;
+    padding-bottom: 2.8rem;
+  }
+  .pick-and-feed__donat {
+    margin: 4rem 4.7rem 6.2rem 4.4rem;
+  }
+  .pick-and-feed__donat-bar-conteiner {
+    max-width: 810px;
+  }
+  .progress_bar_radio-conteiner {
+    gap: 120px;
+  }
+  .progress_bar_prise p {
+    padding-bottom: 46px;
+  }
+  .pick-and-feed__title h2 {
+    margin-bottom: 3rem;
+    margin-right: 100px;
+  }
+  .pick-and-feed__title {
+    margin-bottom: 5rem;
+  }
+  .pick-and-feed__donat-title h3 {
+    padding-top: 1rem;
+  }
+  .pick-and-feed__donat-img-block {
+    padding: 5rem 0rem 0rem 0rem;
+    gap: 3rem;
+    position: relative;
+  }
+  .pick-and-feed__donat-img-block .x-icon {
+    position: relative;
+    top: 15px;
+    right: 23px;
+  }
+  .label-5000 {
+    display: none;
+  }
+  .pick-and-feed__donat-text {
+    margin-top: 7rem;
+  }
+}
+@media screen and (max-width: 955px) {
+  .petstory__conteiner {
+    z-index: 9;
+    width: 100%;
+    position: fixed;
+  }
+  .pets__header {
+    height: 34px;
+    padding: 0px;
+  }
+  .pets__icon {
+    border: 0px solid #FFFFFF;
+    margin: 0px;
+  }
+  .pets__nav nav {
+    display: none;
+  }
+  .pets__designer {
+    display: none;
+  }
+  .logo__name h1 {
+    font-size: 12.2899px;
+    line-height: 120%;
+    margin-top: 8px;
+    margin-left: 4px;
+  }
+  .bamboo {
+    width: 4.54px;
+    height: 13.56px;
+    left: 22px;
+    bottom: 13px;
+  }
+  .section__wrapper {
+    max-width: 64rem;
+  }
+  .burger__menu {
+    display: flex;
+  }
+  .footer__donate {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+  }
+  .footer__conteiner {
+    max-width: 60rem;
+    padding-bottom: 88px;
+  }
+  .footer__button {
+    left: 0px;
+  }
+  .footer__img {
+    padding-bottom: 3.6rem;
+  }
+  .footer__subs-news {
+    display: none;
+  }
+  .footer__social p {
+    display: none;
+  }
+  .footer__link ul {
+    gap: 3.7rem;
+  }
+  .footer__link {
+    margin-left: -30rem;
+    margin-bottom: -7.6rem;
+  }
+  .footer__subs {
+    left: 67px;
+    top: 219px;
+  }
+  .testimonials__img {
+    width: 11.6rem;
+    height: 13.4rem;
+    background: url(../../assets/img/leav_foto640.png) no-repeat;
+  }
+  .footer__social {
+    position: absolute;
+    top: 4%;
+    right: -1%;
+    gap: 2rem;
+    width: 3rem;
+  }
+  .footer__conteiner {
+    position: relative;
+  }
+  .petstory__watch {
+    height: 37rem;
+  }
+  .pick-and-feed__title h2 {
+    font-size: 2.4rem;
+    margin-right: 25px;
+    margin-bottom: 15px;
+  }
+  .pick-and-feed__conteiner {
+    max-width: 60rem;
+    padding-top: 3rem;
+  }
+  .pick-and-feed__title p {
+    margin-bottom: 3rem;
+  }
+  .pick-and-feed__title {
+    margin-bottom: -1rem;
+  }
+  .pick-and-feed__donat-title h3 {
+    padding-top: 3rem;
+  }
+  .pick-and-feed__donat-title p {
+    text-align: center;
+  }
+  .pick-and-feed__donat {
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  .pick-and-feed__donat-bar-conteiner {
+    max-width: 600px;
+    padding-bottom: 9.1rem;
+  }
+  .label-2000 {
+    display: none;
+  }
+  .label-1000 {
+    display: none;
+  }
+  .amount_conteiner {
+    width: 180px;
+    height: 42px;
+  }
+  .sub__conteiner {
+    padding-top: 29px;
+    padding-bottom: 29px;
+  }
+  .pick-and-feed__conteiner {
+    padding-bottom: 4.6rem;
+  }
+  .progress_bar_prise p {
+    padding-bottom: 30px;
+  }
+}
+@media screen and (max-width: 604px) {
+  .petstory__watch {
+    height: 22.1rem;
+  }
+  .pick-and-feed__conteiner {
+    max-width: 30rem;
+    padding-bottom: 2.1rem;
+  }
+  .pick-and-feed__title h2 {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+  .pick-and-feed__title h3 {
+    font-size: 2.4rem;
+  }
+  .pick-and-feed__title p {
+    margin-bottom: 3rem;
+  }
+  .pick-and-feed__donat {
+    margin-top: 3.6em;
+  }
+  .pick-and-feed__donat-title h3 {
+    font-size: 2.4rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+  .pick-and-feed__donat-title p {
+    font-size: 1.6rem;
+    line-height: 140%;
+  }
+  .panda-icon {
+    width: 160.15px;
+    height: 138.72px;
+  }
+  .pick-and-feed__donat-img-block {
+    padding: 0rem 0rem 0rem 0rem;
+    gap: 0rem;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .x-icon {
+    width: 7.89px;
+    height: 7.89px;
+  }
+  .pick-and-feed__donat-img-block .x-icon {
+    top: 8px;
+    right: 9px;
+    margin-top: 10px;
+  }
+  .pick-and-feed__donat-text h4 {
+    font-size: 40.6015px;
+  }
+  .pick-and-feed__donat-text p {
+    font-size: 9.02255px;
+  }
+  .pick-and-feed__donat-text {
+    margin-top: 30px;
+  }
+  .pick-and-feed__donat {
+    margin-bottom: 0rem;
+  }
+  .progress_bar_conteiner {
+    max-width: 300px;
+    height: 15px;
+  }
+  .progress_bar_radio-conteiner {
+    gap: 55px;
+    top: 20%;
+  }
+  .donat {
+    padding-top: 45px;
+    font-size: 13px;
+    line-height: 140%;
+  }
+  .pick-and-feed__donat-bar-conteiner {
+    padding-bottom: 5rem;
+  }
+  .sub__conteiner {
+    padding-top: 20px;
+    padding-bottom: 27px;
+  }
+  .progress_bar_prise p {
+    padding-bottom: 18px;
+    width: 301px;
+  }
+  .section__wrapper {
+    max-width: 32rem;
+  }
+  .logo__name h1 {
+    margin-right: 20px;
+  }
+  .bamboo {
+    left: 13px;
+  }
+  .burger__menu {
+    margin-right: 10px;
+    margin-bottom: 1px;
+  }
+  .footer__conteiner {
+    display: none;
+    max-width: 30rem;
+  }
+  .footer__conteiner320 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer__conteiner320 h3 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19.0145px;
+    line-height: 120%;
+    /* identical to box height, or 23px */
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .footer__link {
+    margin-left: 0rem;
+    margin-bottom: 0rem;
+  }
+  .footer__social {
+    flex-direction: row;
+    position: relative;
+    gap: 3rem;
+    right: 26%;
+    margin-top: 12px;
+  }
+  .footer__social div {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+  .footer__button {
+    margin-top: 33px;
+    left: -2px;
+    margin-bottom: 28px;
+  }
+  .footer__subs-designer {
+    margin-right: 10px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 120%;
+    /* identical to box height, or 18px */
+    color: #FFFFFF;
+  }
+  .footer__link ul {
+    gap: 3rem;
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .footer__link {
+    align-self: auto;
+    margin-bottom: 20px;
+  }
+  .footer__subs-designer {
+    margin-bottom: 23px;
+  }
+  .footer__title320 {
+    position: relative;
+  }
+  .bambook {
+    position: absolute;
+    left: 70px;
+    top: 15px;
+  }
+}
 @font-face {
   font-family: "Roboto";
   src: url(../../assets/fonts/Roboto-Medium.ttf);
