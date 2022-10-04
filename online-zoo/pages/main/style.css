@@ -976,8 +976,6 @@ html {
 @media screen and (max-width: 1519px) {
   .petstory__conteiner {
     z-index: 9;
-    width: 100%;
-    position: fixed;
   }
   .pets__icon {
     margin-left: 15px;
@@ -1166,6 +1164,11 @@ html {
   }
 }
 @media screen and (max-width: 955px) {
+  .petstory__conteiner {
+    z-index: 9;
+    width: 100%;
+    position: fixed;
+  }
   .pets__header {
     height: 34px;
     padding: 0px;
