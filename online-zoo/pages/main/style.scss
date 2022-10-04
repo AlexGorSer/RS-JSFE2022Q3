@@ -41,6 +41,8 @@ html {
 }
 
 .pets__header {
+    position: relative;
+    z-index: 20;
     height: 8rem;
     display: flex;
     font-family: 'Roboto';
@@ -1101,7 +1103,7 @@ html {
     .orange__cirkal {
         width: 367px;
         height: 367px;
-        top: -2.5rem;
+        top: -5.5rem;
         right: 17.8rem;
     }
 
@@ -1111,6 +1113,7 @@ html {
     }
 
     .petstory__watch-favotite {
+        margin-top: 3.1rem;
         padding-right: 3.6rem;
         // padding-top: 3rem;
     }
@@ -1335,10 +1338,10 @@ html {
     }
 }
 
-@media screen and (max-width: 640px) {
-    // .petstory__watch {
-    //     background-position: -87px -3.9rem;
-    // }
+@media screen and (max-width: 909px) {
+    .petstory__watch {
+        background-position: 0px -4rem;
+    }
 }
 
 @media screen and (max-width: 966px) {
@@ -1349,6 +1352,10 @@ html {
 }
 
 @media screen and (max-width: 955px) {
+    .pets__content {
+        padding-top: 2rem;
+    }
+
     .petstory__conteiner {
         z-index: 9;
         width: 100%;
@@ -1425,6 +1432,7 @@ html {
 
     .petstory__watch-favotite {
         width: 255.64px;
+        margin-top: 6.1rem;
     }
 
 
@@ -1678,6 +1686,10 @@ html {
 @media screen and (max-width: 640px) {}
 
 @media screen and (max-width: 604px) {
+    .pets__content {
+        padding-top: 1.4rem;
+    }
+
     .section__wrapper {
         max-width: 32rem;
     }
