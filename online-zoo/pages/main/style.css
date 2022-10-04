@@ -113,7 +113,7 @@ html {
   width: 50rem;
   align-items: flex-start;
   padding-right: 20.3rem;
-  padding-top: 7.4rem;
+  margin-top: 6.4rem;
   border-radius: 50%;
   position: relative;
 }
@@ -976,7 +976,6 @@ html {
 @media screen and (max-width: 1519px) {
   .petstory__conteiner {
     z-index: 9;
-    position: relative;
   }
   .pets__icon {
     margin-left: 15px;
@@ -993,7 +992,6 @@ html {
   }
   .petstory__watch-favotite {
     padding-right: 3.6rem;
-    padding-top: 3rem;
   }
   .pets__header ul {
     gap: 4.8rem;
@@ -1165,17 +1163,12 @@ html {
     margin-right: 65px;
   }
 }
-@media screen and (max-width: 1000px) {
-  .petstory__watch {
-    background-position: -87px -6.9rem;
-  }
-}
-@media screen and (max-width: 966px) {
-  .petstory__watch {
-    background-position: 0px;
-  }
-}
 @media screen and (max-width: 955px) {
+  .petstory__conteiner {
+    z-index: 9;
+    width: 100%;
+    position: fixed;
+  }
   .pets__header {
     height: 34px;
     padding: 0px;
@@ -1221,12 +1214,12 @@ html {
     width: 237.6px;
     height: 237.6px;
     right: 7rem;
-    top: -3px;
+    top: -34px;
   }
   .petstory__watch-button {
     align-self: flex-start;
     margin-left: 17px;
-    margin-bottom: 7.4rem;
+    margin-bottom: 70px;
     position: relative;
     bottom: 9px;
   }
@@ -1445,7 +1438,7 @@ html {
     width: 119.09px;
     height: 119.09px;
     right: 3.9rem;
-    top: 7px;
+    top: -11px;
   }
   .petstory__name {
     font-size: 28px;
@@ -1462,7 +1455,7 @@ html {
     width: 128.13px;
     height: 102.44px;
     padding-right: 3rem;
-    padding-top: 2rem;
+    margin-top: 5.4rem;
   }
   .backstage__text h2 {
     font-family: "Roboto";
