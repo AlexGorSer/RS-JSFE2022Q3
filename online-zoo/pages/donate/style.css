@@ -590,6 +590,7 @@ input[type=radio]:checked ~ .donat {
 }
 
 .amount_conteiner {
+  background: url(../../assets/img/VectorDollar.svg) no-repeat scroll 95% 50%;
   width: 268px;
   height: 54px;
   font-family: "Roboto";
@@ -599,7 +600,6 @@ input[type=radio]:checked ~ .donat {
   line-height: 140%;
   /* or 22px */
   border: 1px solid #929699;
-  background: scroll;
   color: #929699;
 }
 
@@ -1014,6 +1014,8 @@ input[type=radio]:checked ~ .donat {
     max-width: 30rem;
   }
   .footer__conteiner320 {
+    max-width: 320px;
+    margin: auto;
     display: flex;
     position: relative;
     flex-direction: column;
