@@ -836,6 +836,10 @@ input[type=radio]:checked~.donat {
 }
 
 @media screen and (max-width: 1000px) {
+    .progress_bar-line {
+        width: 95%;
+    }
+
     .pick-and-feed__conteiner {
         max-width: 94rem;
         padding-bottom: 2.8rem;
@@ -905,6 +909,15 @@ input[type=radio]:checked~.donat {
 }
 
 @media screen and (max-width: 955px) {
+    .progress_bar-line {
+        width: 90%;
+
+    }
+
+    .progress_bar_conteiner {
+        max-width: 600px;
+    }
+
     .petstory__conteiner {
         z-index: 9;
         width: 100%;
