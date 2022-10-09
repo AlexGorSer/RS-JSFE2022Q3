@@ -2,6 +2,19 @@ html {
     font-size: 10px;
 }
 
+@keyframes tick {
+    0% {
+        transform: scale(0);
+    }
+
+    90% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 .wrapper {
     // max-width: 1600px;
@@ -754,6 +767,7 @@ input[type=radio]:checked+.circal::after {
 
 input[type=radio]:checked~.donat {
     color: #fe9013;
+    animation: tick .5s;
 }
 
 .progress_bar_prise {
