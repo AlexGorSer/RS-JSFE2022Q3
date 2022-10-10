@@ -237,3 +237,5 @@ popupRangeLine.addEventListener('input', (e) => {
         transform (popupRangeLine.value)
 
 })
+
+alert('Привет! проверте пожалуйста в последнийй день дедлайна, мне осталось сделать карусель.')

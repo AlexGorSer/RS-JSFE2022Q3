@@ -698,7 +698,7 @@ html {
 
 .testimonials__cards {
   display: flex;
-  gap: 2.7rem;
+  gap: 2rem;
   max-width: 1160px;
   position: relative;
   left: 5px;
@@ -1131,6 +1131,38 @@ input[type=range]::-webkit-slider-thumb {
   margin: 0px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.carusel {
+  display: flex;
+  overflow: hidden;
+  width: 1160px;
+  align-content: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.flex {
+  display: flex;
+  width: 1158px;
+  height: 872px;
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
+  margin: 0 auto;
+  padding-bottom: 7.6rem;
+  position: relative;
+  left: 0.7rem;
+  flex-direction: column;
+}
+
+.line__style {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
 }
 
 @media screen and (max-width: 1519px) {
