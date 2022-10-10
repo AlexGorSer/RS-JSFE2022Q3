@@ -19,11 +19,119 @@ html {
 
 .petstory__conteiner {
     background-color: black;
+
+}
+
+.burger {
+    background: rgb(33, 31, 34, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    right: -100%;
+    transition: all 0.5s ease;
+}
+
+.burger__line {
+    position: fixed;
+    background: #FFFFFF;
+    width: 100%;
+    height: 50%;
+    z-index: 100;
+    transition: all 0.5s ease;
+}
+
+.burger__icon {
+    padding: 3px;
+    margin: 10px 0px 30px 10px;
+    border: 1px solid orangered;
+
+}
+
+.pets__burger {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    padding-left: 10px;
+
+    color: #333B41;
+
+    a {
+        text-decoration: none;
+        color: #333B41;
+    }
+
+    a:hover {
+        color: #F9804B;
+    }
+
+    p {
+        margin: 15px 0px 0px 0px;
+    }
+}
+
+
+.close__burger__menu {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+
+.burger__line {
+    display: flex;
+    justify-content: space-between;
+    right: -100%;
+}
+
+.burger__nav {
+    padding-left: 10px;
+
+    ul {
+        padding-left: 10px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    li {
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        list-style-type: none;
+
+
+        color: #333B41;
+
+
+    }
+
+    a {
+        color: #333B41;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #F9804B;
+    }
 }
 
 .arrow-640 {
     display: none;
 }
+
+.burger__on {
+    right: 0%;
+
+}
+
 
 .burger__menu {
     cursor: pointer;
@@ -644,6 +752,7 @@ html {
 
 
 .testimonials__conteiner {
+    overflow: hidden;
     max-width: 116rem;
     margin: 0 auto;
     padding-top: 14rem;
@@ -670,15 +779,45 @@ html {
 }
 
 .testimonials__cards {
+    // overflow: hidden;
     display: flex;
-    gap: 2.7rem;
+    gap: 2rem;
     max-width: 1160px;
     position: relative;
     left: 5px;
     bottom: 2px;
+    transition: all 0.5s ease 0s;
 }
 
-.testimonials__card {
+.popup__wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(33, 31, 34, 0.5);
+    z-index: 50;
+
+}
+
+.popup__conteiner {
+    width: 320px;
+    background: #F5F7F6;
+    padding: 20px 20px 17px 17px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10%;
+}
+
+.popup__button {
+    align-self: flex-start;
+    width: 14px;
+    height: 14px;
+}
+
+.testimonials__card-popup {
+    cursor: pointer;
     width: 26.8rem;
     height: 39.1rem;
     background: #F1F3F2;
@@ -686,6 +825,18 @@ html {
     border: double 2px transparent;
     background-clip: content-box, border-box;
     background-image: linear-gradient(#f1f3f2, #f1f3f2), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%);
+}
+
+.testimonials__card {
+    cursor: pointer;
+    width: 26.8rem;
+    height: 39.1rem;
+    background: #F1F3F2;
+    border-radius: 2rem;
+    border: double 2px transparent;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(#f1f3f2, #f1f3f2), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #e0d8f0 80.49%, #eaf7fe 127.9%, #eaf7fe 149.54%);
+
 }
 
 .testimonials__card-title {
@@ -750,6 +901,7 @@ html {
 }
 
 .testimonials__line {
+    cursor: pointer;
     width: 60rem;
     height: 0.8rem;
     margin-left: 15px;
@@ -757,7 +909,34 @@ html {
     margin-bottom: 3.1rem;
     background: #F5F7F6;
     border-radius: 0.5rem;
-    border: double 1px orange;
+    border: solid 0.5px orange;
+    appearance: none;
+}
+
+
+
+.popup__hidden {
+    display: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #FE9013;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 115px;
+    height: 6px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #FE9013;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 115px;
+    height: 6px;
 }
 
 .line {
@@ -1088,6 +1267,42 @@ html {
 
 }
 
+.carusel {
+    display: flex;
+    overflow: hidden;
+    width: 1160px;
+    align-content: center;
+    justify-content: center;
+    gap: 15px;
+
+}
+
+.flex {
+    display: flex;
+    width: 1158px;
+    height: 872px;
+    justify-content: space-between;
+
+    row-gap: 1.5rem;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+    margin: 0 auto;
+    padding-bottom: 7.6rem;
+    position: relative;
+    left: 0.7rem;
+    // margin: 10px;
+    flex-direction: column;
+
+}
+
+.line__style {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 1.5rem;
+    -moz-column-gap: 2rem;
+    column-gap: 2rem;
+}
+
 @media screen and (max-width: 1519px) {
 
     .petstory__conteiner {
@@ -1273,6 +1488,7 @@ html {
     }
 
     .testimonials__card {
+        cursor: pointer;
         width: 293px;
         height: 391px;
     }
@@ -1282,8 +1498,9 @@ html {
     }
 
     .testimonials__cards {
+        // max-width: 880px;
         gap: 3rem;
-        left: 0px;
+        left: 145px;
         bottom: 0px;
     }
 
@@ -1595,9 +1812,12 @@ html {
     }
 
     .testimonials__cards {
+        overflow: hidden;
+        height: 360px;
         flex-direction: column;
         gap: 1.3rem;
-        max-width: 600px;
+        max-width: 605px;
+        left: 0px;
 
     }
 
@@ -1605,6 +1825,12 @@ html {
         width: 553px;
         height: 38px;
         margin: 0px 1.5rem 0.8rem 1.8rem;
+    }
+
+    .popup__text {
+        width: 23.7rem;
+        height: 30.9rem;
+        margin: 0px 1.5rem 1.9rem 1.6rem;
     }
 
     .testimonials__line {
@@ -1909,6 +2135,12 @@ html {
 
     .testimonials__card-text {
         width: 252px;
+    }
+
+    .popup__text {
+        width: 23.7rem;
+        height: 30.9rem;
+        margin: 0px 1.5rem 1.9rem 1.6rem;
     }
 
     .testimonials__button {

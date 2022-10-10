@@ -13,6 +13,33 @@
 
 <body>
     <div class="wrapper">
+        <section>
+            <div class="burger">
+                <div class="burger__line">
+                    <div class="burger__conteiner">
+                        <img src="../../assets/img/svg/RectangleBurger.svg" alt="" class="burger__icon">
+                        <nav class="burger__nav">
+                            <ul>
+                                <li><a href="../main/index.html">About</a></li>
+                                <li><a href="#">Map</a></li>
+                                <li><a href="#">Zoos</a></li>
+                                <li class="active">Donate</li>
+                                <li><a href="#">Contact us</a></li>
+                            </ul>
+                        </nav>
+                        <div class="pets__burger">
+                            <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">
+                                <p>Designed by ©</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="burger__close">
+                        <img src="../../assets/img/svg/x_iconBurger.svg" alt="" class="close__burger__menu">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <header class="petstory__conteiner">
             <div class="pets__header section__wrapper">
                 <div class="pets__nav">
@@ -113,7 +140,8 @@
                                         <span class="donat">$250</span>
                                     </label>
                                     <label for="100" class="progress_bar_radio rad_button label-100">
-                                        <input type="radio" name="amount" id="100" class="progress_bar_radio-button">
+                                        <input checked type="radio" name="amount" id="100"
+                                            class="progress_bar_radio-button">
                                         <span class="circal"></span>
                                         <span class="donat">$100</span>
                                     </label>
@@ -133,7 +161,7 @@
                     </div>
                     <div class="progress_bar_prise">
                         <form class="another_amount">
-                            <input type="number" name="money" id="amount" placeholder="Another amount"
+                            <input max="4" type="number" name="money" id="amount" placeholder="Another amount"
                                 class="amount_conteiner">
                             <div class="sub__conteiner">
                                 <label for="monthly" class="sub__label">
@@ -308,6 +336,7 @@
             </div>
         </footer> -->
     </div>
+    <script src="../donate/script.js"></script>
 </body>
 
 </html>

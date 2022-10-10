@@ -2,6 +2,19 @@ html {
     font-size: 10px;
 }
 
+@keyframes tick {
+    0% {
+        transform: scale(0);
+    }
+
+    90% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 .wrapper {
     // max-width: 1600px;
@@ -17,6 +30,113 @@ html {
 .petstory__conteiner {
     background-color: black;
 }
+
+.burger {
+    background: rgb(33, 31, 34, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    right: -100%;
+    transition: all 0.5s ease;
+}
+
+.burger__line {
+    position: fixed;
+    background: #FFFFFF;
+    width: 100%;
+    height: 50%;
+    z-index: 100;
+    transition: all 0.5s ease;
+}
+
+.burger__icon {
+    padding: 3px;
+    margin: 10px 0px 30px 10px;
+    border: 1px solid orangered;
+
+}
+
+.pets__burger {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    padding-left: 10px;
+
+    color: #333B41;
+
+    a {
+        text-decoration: none;
+        color: #333B41;
+    }
+
+    a:hover {
+        color: #F9804B;
+    }
+
+    p {
+        margin: 15px 0px 0px 0px;
+    }
+}
+
+
+.close__burger__menu {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+}
+
+.burger__line {
+    display: flex;
+    justify-content: space-between;
+    right: -100%;
+}
+
+.burger__nav {
+    padding-left: 10px;
+
+    ul {
+        padding-left: 10px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    li {
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        list-style-type: none;
+
+
+        color: #333B41;
+
+
+    }
+
+    a {
+        color: #333B41;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #F9804B;
+    }
+}
+
+.burger__on {
+    right: 0%;
+
+}
+
 
 .pets__header {
     height: 8rem;
@@ -647,6 +767,7 @@ input[type=radio]:checked+.circal::after {
 
 input[type=radio]:checked~.donat {
     color: #fe9013;
+    animation: tick .5s;
 }
 
 .progress_bar_prise {
