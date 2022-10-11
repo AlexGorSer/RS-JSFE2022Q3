@@ -1,3 +1,5 @@
+// import  DataPet from "../main/dataPet.js";
+
 // Burger
 const burgerOpen = document.querySelector('.burger__menu'),
       burgerCloseButton = document.querySelector('.close__burger__menu'),
@@ -137,8 +139,7 @@ function createTestimArr() {
         } else {
             testimonialsMass.push(random)
         }
-    }
-    
+    }   
 }
 createTestimArr();
 
@@ -238,4 +239,183 @@ popupRangeLine.addEventListener('input', (e) => {
 
 })
 
-alert('Привет! проверте пожалуйста в последнийй день дедлайна, мне осталось сделать карусель.')
+let oneArr = [];
+let twoArr = [];
+let threeArr = [];
+
+
+function createThremArr(arr, obj) {
+
+    for(let i = 0; i < 6; i++) {
+        let random = getRandomNumber(0, obj.length-1);
+        if(arr.includes(random)) {
+            i--
+        } else {
+            arr.push(random)
+        }
+    }   
+}
+
+createThremArr(oneArr, DataPet);
+createThremArr(twoArr, DataPet);
+createThremArr(threeArr, DataPet);
+
+
+let cardBlock = document.querySelectorAll('.block-one');
+let cardBlockLeft = document.querySelector('.left');
+let cardBlockMiddle = document.querySelector('.middle');
+let cardBlockRight = document.querySelector('.right');
+
+
+ function createElement(arr, index) {
+
+    arr.forEach((e, i) =>{
+
+        let card = document.createElement('div');
+        card.classList.add('backstage__card_style');
+        
+        cardBlock[index].appendChild(card)
+
+        let img = document.createElement('img');
+        card.appendChild(img);
+        img.src = DataPet[arr[i]].img;
+
+        let textConteiner = document.createElement('div');
+        textConteiner.classList.add('backstage__card_style_text');
+        card.appendChild(textConteiner);
+        let div = document.createElement('div');
+
+        textConteiner.appendChild(div);
+
+        let h3 = document.createElement('h3');
+        let p = document.createElement('p');
+        h3.innerText = DataPet[arr[i]].name;
+        p.innerText = DataPet[arr[i]].nativ;
+        div.appendChild(h3);
+        div.appendChild(p);
+
+        let imgConteiner = document.createElement('div');
+        imgConteiner.classList.add('card__svg');
+        textConteiner.appendChild(imgConteiner);
+
+        let imgEat =  document.createElement('img');
+        imgEat.src = DataPet[arr[i]].eat;
+        imgConteiner.appendChild(imgEat);
+    })
+ 
+ }
+//  createElement(oneArr, 0);
+ createElement(twoArr, 1);
+//  createElement(threeArr, 2);
+
+
+let left = document.querySelector('.button__left');
+    left.addEventListener('click', () => {
+
+    if(window.innerWidth > 1520) {
+        document.querySelector('.carusel').classList.add('move-leftOne');
+    } else if (window.innerWidth < 1520 && window.innerWidth > 956) {
+        document.querySelector('.carusel').classList.add('move-leftTwo');
+    } else if (window.innerWidth < 956) {
+        document.querySelector('.carusel').classList.add('move-leftThree');
+    }
+    if(cardBlock[2].children.length === 0) {
+        createArrOne(2)
+    }
+    
+
+
+})
+let right = document.querySelector('.button__right');
+    right.addEventListener('click', () => {
+    if(window.innerWidth > 1520) {
+        document.querySelector('.carusel').classList.add('move-rightOne');
+    } else if (window.innerWidth < 1520 && window.innerWidth > 956) {
+        document.querySelector('.carusel').classList.add('move-rightTwo');
+    } else if (window.innerWidth < 956) {
+        document.querySelector('.carusel').classList.add('move-rightThree');
+    } 
+    if(cardBlock[0].children.length === 0) {
+        createArrThree(0)
+    }
+    
+
+})
+console.log(cardBlock[0].children.length)
+
+let animation =  document.querySelector('.carusel');
+
+animation.addEventListener('animationend', (e) => {
+
+    if(e.animationName === 'moveLeftOne' || e.animationName === 'moveLeftTwo' || e.animationName === 'moveLeftThree') {
+        cardBlock[1].innerHTML = cardBlock[2].innerHTML
+    } else {
+        cardBlock[1].innerHTML = cardBlock[0].innerHTML
+    }
+
+    cardBlock[2].innerHTML = ''
+    cardBlock[0].innerHTML = ''
+    document.querySelector('.carusel').classList.remove('move-leftOne');
+    document.querySelector('.carusel').classList.remove('move-rightOne');
+    document.querySelector('.carusel').classList.remove('move-leftTwo');
+    document.querySelector('.carusel').classList.remove('move-rightTwo');
+    document.querySelector('.carusel').classList.remove('move-leftThree');
+    document.querySelector('.carusel').classList.remove('move-rightThree');
+})
+
+
+console.log(cardBlock[1].childNodes.length);
+
+function createArrOne(index) {
+
+let oneArr = [];
+createThremArr(oneArr, DataPet);
+
+        create(oneArr, index)
+
+
+ }
+ function createArrThree(index) {
+
+    let threeArr = [];
+    createThremArr(threeArr, DataPet);
+    
+    create(threeArr, index)
+    
+ }
+
+ function create(arr, index) {
+    arr.forEach((e, i) =>{
+
+        let card = document.createElement('div');
+        card.classList.add('backstage__card_style');
+        
+        cardBlock[index].appendChild(card)
+
+        let img = document.createElement('img');
+        card.appendChild(img);
+        img.src = DataPet[arr[i]].img;
+
+        let textConteiner = document.createElement('div');
+        textConteiner.classList.add('backstage__card_style_text');
+        card.appendChild(textConteiner);
+        let div = document.createElement('div');
+
+        textConteiner.appendChild(div);
+
+        let h3 = document.createElement('h3');
+        let p = document.createElement('p');
+        h3.innerText = DataPet[arr[i]].name;
+        p.innerText = DataPet[arr[i]].nativ;
+        div.appendChild(h3);
+        div.appendChild(p);
+
+        let imgConteiner = document.createElement('div');
+        imgConteiner.classList.add('card__svg');
+        textConteiner.appendChild(imgConteiner);
+
+        let imgEat =  document.createElement('img');
+        imgEat.src = DataPet[arr[i]].eat;
+        imgConteiner.appendChild(imgEat);
+    })
+ }

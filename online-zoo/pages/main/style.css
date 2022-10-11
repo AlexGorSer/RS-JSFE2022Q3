@@ -2,6 +2,147 @@ html {
   font-size: 10px;
 }
 
+@-webkit-keyframes moveLeftOne {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -1160px;
+  }
+}
+
+@keyframes moveLeftOne {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -1160px;
+  }
+}
+@-webkit-keyframes moveRightOne {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 1160px;
+  }
+}
+@keyframes moveRightOne {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 1160px;
+  }
+}
+.move-leftOne {
+  -webkit-animation-name: moveLeftOne;
+          animation-name: moveLeftOne;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.move-rightOne {
+  -webkit-animation-name: moveRightOne;
+          animation-name: moveRightOne;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes moveLeftTwo {
+  from {
+    left: -10px;
+  }
+  to {
+    left: -965px;
+  }
+}
+
+@keyframes moveLeftTwo {
+  from {
+    left: -10px;
+  }
+  to {
+    left: -965px;
+  }
+}
+@-webkit-keyframes moveRightTwo {
+  from {
+    left: -10px;
+  }
+  to {
+    left: 946px;
+  }
+}
+@keyframes moveRightTwo {
+  from {
+    left: -10px;
+  }
+  to {
+    left: 946px;
+  }
+}
+.move-leftTwo {
+  -webkit-animation-name: moveLeftTwo;
+          animation-name: moveLeftTwo;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.move-rightTwo {
+  -webkit-animation-name: moveRightTwo;
+          animation-name: moveRightTwo;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes moveLeftThree {
+  from {
+    left: -10px;
+  }
+  to {
+    left: -625px;
+  }
+}
+
+@keyframes moveLeftThree {
+  from {
+    left: -10px;
+  }
+  to {
+    left: -625px;
+  }
+}
+@-webkit-keyframes moveRightThree {
+  from {
+    left: -10px;
+  }
+  to {
+    left: 605px;
+  }
+}
+@keyframes moveRightThree {
+  from {
+    left: -10px;
+  }
+  to {
+    left: 605px;
+  }
+}
+.move-leftThree {
+  -webkit-animation-name: moveLeftThree;
+          animation-name: moveLeftThree;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.move-rightThree {
+  -webkit-animation-name: moveRightThree;
+          animation-name: moveRightThree;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
 .wrapper {
   margin: 0 auto;
   overflow: hidden;
@@ -462,6 +603,7 @@ html {
   border-radius: 50%;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   transition: all 0.5s ease;
+  z-index: 1;
 }
 
 .button__left:hover {
@@ -484,6 +626,7 @@ html {
   height: 6.2rem;
   border-radius: 50%;
   transition: all 0.5s ease;
+  z-index: 1;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
 
@@ -1133,20 +1276,27 @@ input[type=range]::-webkit-slider-thumb {
   color: #FFFFFF;
 }
 
+.carusel__wrapper {
+  overflow: hidden;
+}
+
 .carusel {
   display: flex;
-  overflow: hidden;
-  width: 1160px;
+  width: 100%;
   align-content: center;
   justify-content: center;
   gap: 15px;
+  position: relative;
+  left: 0px;
 }
 
 .flex {
   display: flex;
-  width: 1158px;
+  min-width: 1145px;
   height: 872px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
   row-gap: 1.5rem;
   -moz-column-gap: 2rem;
   column-gap: 2rem;
@@ -1154,7 +1304,6 @@ input[type=range]::-webkit-slider-thumb {
   padding-bottom: 7.6rem;
   position: relative;
   left: 0.7rem;
-  flex-direction: column;
 }
 
 .line__style {
@@ -1166,6 +1315,12 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 @media screen and (max-width: 1519px) {
+  .flex {
+    min-width: 940px;
+  }
+  .carusel {
+    left: -10px;
+  }
   .petstory__conteiner {
     z-index: 9;
   }
@@ -1242,6 +1397,7 @@ input[type=range]::-webkit-slider-thumb {
   }
   .backstage__card_style {
     width: 294px;
+    height: 345px;
   }
   .button__left {
     left: 32.6rem;
@@ -1370,6 +1526,11 @@ input[type=range]::-webkit-slider-thumb {
 @media screen and (max-width: 955px) {
   .pets__content {
     padding-top: 2rem;
+  }
+  .flex {
+    min-width: 600px;
+    height: 756px;
+    row-gap: 9.2rem;
   }
   .petstory__conteiner {
     z-index: 9;
@@ -1642,6 +1803,14 @@ input[type=range]::-webkit-slider-thumb {
   }
 }
 @media screen and (max-width: 604px) {
+  .carusel {
+    left: 0px;
+  }
+  .flex {
+    min-width: 300px;
+    height: 1330px;
+    row-gap: 2rem;
+  }
   .petstory__watch {
     background-position: 0px 0rem;
   }
