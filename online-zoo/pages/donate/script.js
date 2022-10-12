@@ -45,8 +45,12 @@ amountText.addEventListener('input', () => {
     }
 
     for (let index = 0; index < radioButton.length; index++) {
-        if (amountText.value === radioButton[index].id)
+        if (amountText.value === radioButton[index].id) {
+            radioButton[index].checked = true;
+        } else {
+            radioButton[index].checked = false;
+        }
 
-        radioButton[index].checked = true;
+        
     }
 })
