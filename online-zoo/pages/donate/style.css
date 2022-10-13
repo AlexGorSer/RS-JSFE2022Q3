@@ -430,7 +430,7 @@ html {
 }
 
 .active {
-  cursor: context-menu !important;
+  cursor: pointer !important;
   color: #F9804B !important;
 }
 

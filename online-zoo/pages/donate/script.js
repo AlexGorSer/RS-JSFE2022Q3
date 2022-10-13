@@ -2,6 +2,7 @@
 const burgerOpen = document.querySelector('.burger__menu'),
       burgerCloseButton = document.querySelector('.close__burger__menu'),
       burgerBack = document.querySelector('.burger'),
+      burgerLink = document.querySelectorAll('.burger__link'),
       burgerWindow = document.querySelector('.burger__line');
 
 burgerOpen.addEventListener('click', () => {
@@ -15,6 +16,13 @@ burgerBack.addEventListener('click', (e) => {
         burgerWindow.classList.remove('burger__on');
         burgerBack.classList.remove('burger__on');
     }
+})
+
+burgerLink.forEach(e =>{
+    e.addEventListener('click', e => {
+            burgerWindow.classList.remove('burger__on');
+            burgerBack.classList.remove('burger__on');  
+    })
 })
 
 // radiobuttons
