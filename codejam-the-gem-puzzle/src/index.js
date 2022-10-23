@@ -4,7 +4,6 @@ import './sass/style.scss';
 
 //JS
 import './js/createElement';
-import './js/timer';
 import './js/gameLogics';
 
 import  './sound/menu-bleep-rnc.mp3';

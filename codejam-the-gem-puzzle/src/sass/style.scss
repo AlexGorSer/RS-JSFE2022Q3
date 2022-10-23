@@ -50,6 +50,7 @@ html {
 
 .plate__style {
   position: relative;
+  cursor: pointer;
   width: 100px;
   height: 100px;
   border: 1px solid black;
@@ -59,12 +60,15 @@ html {
   text-align: center;
   padding: 30px;
   font-size: 3rem;
-  transition: all 0.5s ease;
+  transition: transform 0.2s;
 }
 
-// .zero__plate {
-//   border: none;
-// }
+.count__container {
+  display: flex;
+  gap: 4rem;
+  font-size: 3rem;
+  margin: 20px 0px 20px 0px;
+}
 
 @keyframes moveBot {
   from {
