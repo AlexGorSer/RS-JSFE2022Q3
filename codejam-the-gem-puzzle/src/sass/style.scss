@@ -44,10 +44,12 @@ html {
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
-  transition: all .2;
+  transition: all 0.5s ease;
+  position: relative;
 }
 
 .plate__style {
+  position: relative;
   width: 100px;
   height: 100px;
   border: 1px solid black;
@@ -57,8 +59,40 @@ html {
   text-align: center;
   padding: 30px;
   font-size: 3rem;
+  transition: all 0.5s ease;
 }
 
-.zero__plate {
-  // color: white;
+// .zero__plate {
+//   border: none;
+// }
+
+@keyframes moveBot {
+  from {
+    left: 0px;
+  }
+
+  to {
+    left: -1160px;
+  }
+}
+
+
+@keyframes moveRightOne {
+  from {
+    left: 0px;
+  }
+
+  to {
+    left: 1160px;
+  }
+}
+
+.move-leftOne {
+  animation-name: moveBot;
+  animation-duration: 1s;
+}
+
+.move-rightOne {
+  animation-name: moveRightOne;
+  animation-duration: 1s;
 }

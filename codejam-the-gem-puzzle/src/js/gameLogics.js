@@ -1,3 +1,9 @@
+
+import soundClick from '../sound/menu-bleep-rnc.mp3';
+import soundMenu from '../sound/03-cutman-stage.mp3';
+
+new Audio(soundMenu).play();
+
 const game = document.querySelector('.game__container');
 
 
@@ -8,12 +14,14 @@ const game = document.querySelector('.game__container');
 //   [13, 14, 15, 0]
 // ]
 let matrix = [1, 2, 3, 4,
-           5, 6, 7, 8,
-           9, 10, 11, 12,
-           13, 14, 15,
-          ];
-          matrix.sort(() => Math.random() - 0.2)
-          matrix.push(0);
+              5, 6, 7, 8,
+              9, 10, 11, 12,
+              13, 14, 15,
+            ];
+matrix.sort(() => Math.random() - 0.2);
+matrix.push('');
+
+let finalTarget = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ''];
 
 // function createGame(arr){
 //   for(let i= 0; i < arr.length; i++){
@@ -31,6 +39,15 @@ let matrix = [1, 2, 3, 4,
 //   }
 // }
 // createGame(matrix);
+
+function isWin(matrix, final){
+  let one = JSON.stringify(matrix);
+  let two = JSON.stringify(final);
+  if(one === two) {
+    alert('Молодец, еще разок?')
+  }
+
+}
 function createGame2(arr){
   for(let i= 0; i < arr.length; i++){
     let puz = document.createElement('div');
@@ -39,7 +56,7 @@ function createGame2(arr){
     puz.dataset.id = arr[i];
     game.appendChild(puz);
 
-      if(arr[i] === 0) {
+      if(arr[i] === '') {
         puz.classList.add('zero__plate');
         // puz.textContent =  '';
       }
@@ -51,9 +68,9 @@ createGame2(matrix);
 
 const plate = document.querySelectorAll('.plate__style');
 function render(matrix, plates) {
-  plates.forEach(target => {
-    target.textContent = '';
-  });
+  // plates.forEach(target => {
+  //   target.textContent = '';
+  // });
   matrix.forEach((e, index) => {
     plate[index].textContent = e;
   })
@@ -64,38 +81,39 @@ function render(matrix, plates) {
 
 plate.forEach((e, index) => {
   
-  e.addEventListener('click', () => {
-    if(matrix[index - 4] === 0) {
+  e.addEventListener('click', (e) => {
+    new Audio(soundClick).play();
+    
+    if(matrix[index - 4] === '') {
       let buf2 = matrix[index - 4];
       matrix[index - 4] = matrix[index];
       matrix[index] = buf2;
-      console.log(matrix);
       render(matrix, plate);
+      isWin(matrix, finalTarget);
 
 
-    } else if(matrix[index + 4]===0){
+    } else if(matrix[index + 4]===''){
 
       let buf2 = matrix[index + 4];
       matrix[index + 4] = matrix[index];
       matrix[index] = buf2;
-      console.log(matrix);
       render(matrix, plate);
-      
+      isWin(matrix, finalTarget); 
 
-    }else if(matrix[index + 1]===0){
+    }else if(matrix[index + 1]===''){
       let buf2 = matrix[index + 1];
       matrix[index + 1] = matrix[index];
       matrix[index] = buf2;
-      console.log(matrix);
       render(matrix, plate);
+      isWin(matrix, finalTarget);
 
 
-    }else if(matrix[index - 1]===0){
+    }else if(matrix[index - 1]===''){
       let buf2 = matrix[index - 1];
       matrix[index - 1] = matrix[index];
       matrix[index] = buf2;
-      console.log(matrix);
       render(matrix, plate);
+      isWin(matrix, finalTarget);
 
 
     } else {
@@ -103,3 +121,9 @@ plate.forEach((e, index) => {
     }
   })
 })
+
+// function animation(target) {
+//   target.addEventListener('animationend', e => {
+//     target.classList.remove('moveBot');
+//   })
+// }

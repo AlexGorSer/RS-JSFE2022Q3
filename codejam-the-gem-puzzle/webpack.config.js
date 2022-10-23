@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-
+const CopyPlugin = require("copy-webpack-plugin");
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 
@@ -25,7 +25,12 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'index.html',
         }),
-
+        new CopyPlugin({
+          patterns: [
+              { from: './src/sound/*.mp3', to:'./sound/[name][ext]'},
+              // { from: './src/assets/svg/*.svg', to:'./assets/svg/[name][ext]'},
+          ]  
+      })
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
@@ -46,6 +51,10 @@ const config = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
+            },
+            {
+              test: /\.(png|svg|jpg|jpeg|gif|ogg|mp3|wav)$/i,
+              type: 'asset/resource',
             },
 
             // Add your rules for custom modules here
