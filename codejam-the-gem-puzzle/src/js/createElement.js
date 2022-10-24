@@ -38,7 +38,7 @@ for(let i = 0; i < 4; i++) {
 const buttons = document.querySelectorAll('.buttons');
 
 buttons[0].textContent = 'Shuffle and Start';
-buttons[1].textContent = 'Stop';
+buttons[1].textContent = 'Play';
 buttons[2].textContent = 'Save';
 buttons[3].textContent = 'Results';
 buttons[0].classList.add('start');
