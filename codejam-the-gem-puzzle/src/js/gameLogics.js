@@ -16,6 +16,7 @@ let gameStart = false;
 let minute = 0;
 let seconds = 0;
 let mutedSound = false;
+let size = '4x4';
 
 function playSound() {
   if(mutedSound === false) {
@@ -77,6 +78,7 @@ size3.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '3x3';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   document.querySelector('.stop').textContent = 'Play'
@@ -188,6 +190,7 @@ size4.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '4x4';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   document.querySelector('.stop').textContent = 'Play'
@@ -306,6 +309,7 @@ size5.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '5x5';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   createGameSizeTFive();
@@ -417,6 +421,7 @@ size6.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '6x6';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   document.querySelector('.stop').textContent = 'Play'
@@ -527,6 +532,7 @@ size7.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '7x7';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   document.querySelector('.stop').textContent = 'Play'
@@ -635,6 +641,7 @@ size8.addEventListener('click', e => {
   minute = 0;
   seconds = 0;
   click = 0;
+  size = '8x8';
   document.querySelector('.click').textContent = `Clicks ${click}`;
   document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   document.querySelector('.stop').textContent = 'Play'
@@ -757,6 +764,7 @@ function saveResultInLocalStorage() {
   result.clicks = click;
   result.minute = minute;
   result.seconds = seconds;
+  result.size = size;
   if(saveResult.length === 10) {
     saveResult.shift();
   }
@@ -772,7 +780,7 @@ getResultsButton.addEventListener('click', e => {
 
   let result = localStorage.getItem('result');
   result = JSON.parse(result);
-
+  result.sort((a, b) => a.clicks > b.clicks);
 
   let resContainer = document.createElement('div');
   resContainer.classList.add('res__container');
@@ -787,7 +795,7 @@ getResultsButton.addEventListener('click', e => {
       let row = document.createElement('div');
       row.classList.add('row__style');
       resContainer.appendChild(row);
-      row.textContent = `Кликов ${saveResult[index].clicks}. Время ${saveResult[index].minute}:${saveResult[index].seconds}`
+      row.textContent = `Кликов ${result[index].clicks}. Время ${result[index].minute}:${result[index].seconds}. Размер ${result[index].size}`
   
     })
   
