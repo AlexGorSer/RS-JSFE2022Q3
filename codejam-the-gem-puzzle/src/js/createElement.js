@@ -91,3 +91,9 @@ buttonsSize[2].classList.add('sizeFive');
 buttonsSize[3].classList.add('sizeSix');
 buttonsSize[4].classList.add('sizeSeven');
 buttonsSize[5].classList.add('sizeEight');
+
+const mutedButton = document.createElement('button');
+mutedButton.classList.add('muted');
+container.appendChild(mutedButton);
+mutedButton.textContent = 'Muted';
+

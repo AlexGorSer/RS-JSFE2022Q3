@@ -73,6 +73,13 @@ const size3 = document.querySelector('.sizeTree');
 size3.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '3x3'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+  document.querySelector('.stop').textContent = 'Play'
   createGameSizeThree();
 })
 function createGameSizeThree() {
@@ -93,6 +100,7 @@ function createGameSizeThree() {
     seconds = 0;
     document.querySelector('.click').textContent = `Clicks ${click}`;
     document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    document.querySelector('.stop').textContent = 'Pause';
     })
 
     function createGame2(arr){
@@ -176,6 +184,13 @@ const size4 = document.querySelector('.sizeFour');
 size4.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '4x4'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+  document.querySelector('.stop').textContent = 'Play'
   createGameSizeFour();
 })
 
@@ -200,6 +215,7 @@ minute = 0;
 seconds = 0;
 document.querySelector('.click').textContent = `Clicks ${click}`;
 document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+document.querySelector('.stop').textContent = 'Play'
 })
 
 function createGame2(arr){
@@ -286,6 +302,12 @@ const size5 = document.querySelector('.sizeFive');
 size5.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '5x5'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
   createGameSizeTFive();
 })
 function createGameSizeTFive() {
@@ -306,6 +328,7 @@ function createGameSizeTFive() {
     seconds = 0;
     document.querySelector('.click').textContent = `Clicks ${click}`;
     document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    document.querySelector('.stop').textContent = 'Play'
     })
 
     function createGame2(arr){
@@ -390,6 +413,13 @@ const size6 = document.querySelector('.sizeSix');
 size6.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '6x6'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+  document.querySelector('.stop').textContent = 'Play'
   createGameSizeTSix();
 })
 
@@ -411,6 +441,7 @@ function createGameSizeTSix() {
     seconds = 0;
     document.querySelector('.click').textContent = `Clicks ${click}`;
     document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    document.querySelector('.stop').textContent = 'Pause';
     })
 
     function createGame2(arr){
@@ -492,6 +523,13 @@ const size7 = document.querySelector('.sizeSeven');
 size7.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '7x7'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+  document.querySelector('.stop').textContent = 'Play'
   createGameSizeTSeven();
 })
 
@@ -513,6 +551,7 @@ function createGameSizeTSeven() {
     seconds = 0;
     document.querySelector('.click').textContent = `Clicks ${click}`;
     document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    document.querySelector('.stop').textContent = 'Pause';
     })
 
     function createGame2(arr){
@@ -592,6 +631,13 @@ const size8 = document.querySelector('.sizeEight');
 size8.addEventListener('click', e => {
   game.innerHTML = '';
   sizeNameTitle.textContent = '8x8'
+  gameStart = false;
+  minute = 0;
+  seconds = 0;
+  click = 0;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+  document.querySelector('.stop').textContent = 'Play'
   createGameSizeTEight();
 })
 
@@ -613,6 +659,7 @@ function createGameSizeTEight() {
     seconds = 0;
     document.querySelector('.click').textContent = `Clicks ${click}`;
     document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    document.querySelector('.stop').textContent = 'Pause';
     })
 
     function createGame2(arr){
@@ -760,6 +807,16 @@ getResultsButton.addEventListener('click', e => {
     })
     
   }
+})
 
+const mutedButton = document.querySelector('.muted');
 
+mutedButton.addEventListener('click', e => {
+  if(mutedSound === true) {
+    mutedSound = false;
+    mutedButton.textContent = 'Muted';
+  } else {
+    mutedSound = true;
+    mutedButton.textContent = 'UnMuted';
+  }
 })
