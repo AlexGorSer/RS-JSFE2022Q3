@@ -8,8 +8,8 @@ const gameContainer = document.querySelector('.puzzle__container');
 
 const start = document.querySelector('.start');
 
-// alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
-// alert('Нажмите на Play что-бы запустить изи мод для теста функций.');
+alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
+alert('Нажмите на Play что-бы запустить изи мод для теста функций. Нажмите Shuffle and Start что-бы начать игру.');
 
 let click = 0;
 let gameStart = false;
