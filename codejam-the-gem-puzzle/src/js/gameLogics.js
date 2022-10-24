@@ -1,35 +1,33 @@
 
 import soundClick from '../sound/menu-bleep-rnc.mp3';
-import soundMenu from '../sound/03-cutman-stage.mp3';
 
-// new Audio(soundMenu).play();
 
 const game = document.querySelector('.game__container');
 const gameContainer = document.querySelector('.puzzle__container');
 
 
-// let matrix = [
-//   [1, 2, 3, 4],
-//   [5, 6, 7, 8],
-//   [9, 10, 11, 12],
-//   [13, 14, 15, 0]
-// ]
 const start = document.querySelector('.start');
 
-alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
-alert('Нажмите на Play что-бы запустить изи мод для теста функций.');
-let matrix = [1, 2, 3, 4,
-              5, 6, 7, 8,
-              9, 10, 12, 15,
-              13, 14, 11,
-            ];
-            matrix.push('');
+// alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
+// alert('Нажмите на Play что-бы запустить изи мод для теста функций.');
 
 let click = 0;
 let gameStart = false;
 let minute = 0;
 let seconds = 0;
 let mutedSound = false;
+
+function playSound() {
+  if(mutedSound === false) {
+    new Audio(soundClick).play();
+  }
+  
+}
+
+function getClicks() {
+  click++;
+  document.querySelector('.click').textContent = `Clicks ${click}`;
+}
 
 document.querySelector('.stop').addEventListener('click', e => {
   if(gameStart === true) {
@@ -41,24 +39,6 @@ document.querySelector('.stop').addEventListener('click', e => {
   }
 })
 
-start.addEventListener('click', e => {
-  gameStart = true;
-  matrix.sort(() => Math.random() - 0.2);
-  
-  matrix.forEach((e, index) => {
-    plate[index].textContent = e;
-  })
-  click = 0;
-  minute = 0;
-  seconds = 0;
-  document.querySelector('.click').textContent = `Clicks ${click}`;
-  document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
-})
-
-function getClicks() {
-  click++;
-  document.querySelector('.click').textContent = `Clicks ${click}`;
-}
 setInterval(getTime, 1000);
 function getTime() {
   if(gameStart === true) {
@@ -72,9 +52,6 @@ function getTime() {
 
 }
 
-let finalTarget = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ''];
-
-
 function isWin(matrix, final){
   let one = JSON.stringify(matrix);
   let two = JSON.stringify(final);
@@ -83,68 +60,90 @@ function isWin(matrix, final){
     saveResultInLocalStorage();
     alert(`Поздравляю! Игра завершена за ${click} кликов и ${minute}:${seconds} времени.`);
   }
-
 }
-function createGame2(arr){
-  for(let i= 0; i < arr.length; i++){
-    let puz = document.createElement('div');
-    puz.classList.add('plate__style');
-    puz.textContent = arr[i];
-    puz.dataset.id = arr[i];
-    game.appendChild(puz);
 
-      if(arr[i] === '') {
-        puz.classList.add('zero__plate');
-        // puz.textContent =  '';
-      }
+const sizeNameTitle = document.querySelector('.size__name');
 
-      
-  }
-}
-createGame2(matrix);
 
-const plate = document.querySelectorAll('.plate__style');
-function render(matrix, plates) {
-  // plates.forEach(target => {
-  //   target.textContent = '';
-  // });
-  matrix.forEach((e, index) => {
+
+
+
+//Генерация игры 3на3
+const size3 = document.querySelector('.sizeTree'); 
+size3.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '3x3'
+  createGameSizeThree();
+})
+function createGameSizeThree() {
+  let matrix = [1,2,3,4,5,6,7,8];
+  matrix.push('');
+  let finalTarget = [1, 2, 3, 4, 5, 6, 7, 8,''];
+
+
+  start.addEventListener('click', e => {
+    gameStart = true;
+    matrix.sort(() => Math.random() - 0.2);
+    
+    matrix.forEach((e, index) => {
     plate[index].textContent = e;
-  })
+    })
+    click = 0;
+    minute = 0;
+    seconds = 0;
+    document.querySelector('.click').textContent = `Clicks ${click}`;
+    document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    })
 
+    function createGame2(arr){
+      for(let i= 0; i < arr.length; i++){
+      let puz = document.createElement('div');
+      puz.classList.add('plate__styleThree');
+      puz.textContent = arr[i];
+      puz.dataset.id = arr[i];
+      game.appendChild(puz);
+      
+      if(arr[i] === '') {
+      puz.classList.add('zero__plate');
+      // puz.textContent =  '';
+      }
+      
+      
+      }
+      }
+      createGame2(matrix);
 
-};
-function playSound() {
-  if(mutedSound === false) {
-    new Audio(soundClick).play();
-  }
-  
-}
+      const plate = document.querySelectorAll('.plate__styleThree');
+      function render(matrix, plates) {
+      matrix.forEach((e, index) => {
+      plate[index].textContent = e;
+      })
+      };
 
-plate.forEach((e, index) => {
-  
-  e.addEventListener('click', (e) => {
-    if(gameStart === true) {
-      if(matrix[index - 4] === '') {
-        let buf2 = matrix[index - 4];
-        matrix[index - 4] = matrix[index];
+      plate.forEach((e, index) => {
+
+        e.addEventListener('click', (e) => {
+        if(gameStart === true) {
+        if(matrix[index - 3] === '') {
+        let buf2 = matrix[index - 3];
+        matrix[index - 3] = matrix[index];
         matrix[index] = buf2;
         getClicks()
         render(matrix, plate);
         isWin(matrix, finalTarget);
         playSound();
-  
-      } else if(matrix[index + 4]===''){
-  
-        let buf2 = matrix[index + 4];
-        matrix[index + 4] = matrix[index];
+        
+        } else if(matrix[index + 3]===''){
+        
+        let buf2 = matrix[index + 3];
+        matrix[index + 3] = matrix[index];
         matrix[index] = buf2;
         getClicks()
         render(matrix, plate);
         isWin(matrix, finalTarget); 
         playSound();
-  
-      }else if(matrix[index + 1]===''){
+        
+        }else if(matrix[index + 1]===''){
         let buf2 = matrix[index + 1];
         matrix[index + 1] = matrix[index];
         matrix[index] = buf2;
@@ -152,8 +151,8 @@ plate.forEach((e, index) => {
         render(matrix, plate);
         isWin(matrix, finalTarget);
         playSound();
-  
-      }else if(matrix[index - 1]===''){
+        
+        }else if(matrix[index - 1]===''){
         let buf2 = matrix[index - 1];
         matrix[index - 1] = matrix[index];
         matrix[index] = buf2;
@@ -161,18 +160,534 @@ plate.forEach((e, index) => {
         render(matrix, plate);
         isWin(matrix, finalTarget);
         playSound();
-      } else {
+        } else {
         console.log(false)
-      }
-    }
-  })
+        }
+        }
+        })
+        })
+
+
+  
+}
+//Генерация игры 4на4
+
+const size4 = document.querySelector('.sizeFour'); 
+size4.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '4x4'
+  createGameSizeFour();
 })
 
-// function animation(target) {
-//   target.addEventListener('animationend', e => {
-//     target.classList.remove('moveBot');
-//   })
-// }
+function createGameSizeFour() {
+  let matrix = [1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 10, 12, 15,
+    13, 14, 11,
+  ];
+  matrix.push('');
+let finalTarget = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ''];
+
+start.addEventListener('click', e => {
+gameStart = true;
+matrix.sort(() => Math.random() - 0.2);
+
+matrix.forEach((e, index) => {
+plate[index].textContent = e;
+})
+click = 0;
+minute = 0;
+seconds = 0;
+document.querySelector('.click').textContent = `Clicks ${click}`;
+document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+})
+
+function createGame2(arr){
+for(let i= 0; i < arr.length; i++){
+let puz = document.createElement('div');
+puz.classList.add('plate__styleFour');
+puz.textContent = arr[i];
+puz.dataset.id = arr[i];
+game.appendChild(puz);
+
+if(arr[i] === '') {
+puz.classList.add('zero__plate');
+// puz.textContent =  '';
+}
+
+
+}
+}
+createGame2(matrix);
+
+const plate = document.querySelectorAll('.plate__styleFour');
+function render(matrix, plates) {
+matrix.forEach((e, index) => {
+plate[index].textContent = e;
+})
+
+
+};
+
+
+plate.forEach((e, index) => {
+
+e.addEventListener('click', (e) => {
+if(gameStart === true) {
+if(matrix[index - 4] === '') {
+let buf2 = matrix[index - 4];
+matrix[index - 4] = matrix[index];
+matrix[index] = buf2;
+getClicks()
+render(matrix, plate);
+isWin(matrix, finalTarget);
+playSound();
+
+} else if(matrix[index + 4]===''){
+
+let buf2 = matrix[index + 4];
+matrix[index + 4] = matrix[index];
+matrix[index] = buf2;
+getClicks()
+render(matrix, plate);
+isWin(matrix, finalTarget); 
+playSound();
+
+}else if(matrix[index + 1]===''){
+let buf2 = matrix[index + 1];
+matrix[index + 1] = matrix[index];
+matrix[index] = buf2;
+getClicks()
+render(matrix, plate);
+isWin(matrix, finalTarget);
+playSound();
+
+}else if(matrix[index - 1]===''){
+let buf2 = matrix[index - 1];
+matrix[index - 1] = matrix[index];
+matrix[index] = buf2;
+getClicks()
+render(matrix, plate);
+isWin(matrix, finalTarget);
+playSound();
+} else {
+console.log(false)
+}
+}
+})
+})
+
+}
+createGameSizeFour();
+
+//Генерация игры 5на5
+
+const size5 = document.querySelector('.sizeFive'); 
+size5.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '5x5'
+  createGameSizeTFive();
+})
+function createGameSizeTFive() {
+  let matrix = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+  matrix.push('');
+  let finalTarget = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,''];
+
+
+  start.addEventListener('click', e => {
+    gameStart = true;
+    matrix.sort(() => Math.random() - 0.2);
+    
+    matrix.forEach((e, index) => {
+    plate[index].textContent = e;
+    })
+    click = 0;
+    minute = 0;
+    seconds = 0;
+    document.querySelector('.click').textContent = `Clicks ${click}`;
+    document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    })
+
+    function createGame2(arr){
+      for(let i= 0; i < arr.length; i++){
+      let puz = document.createElement('div');
+      puz.classList.add('plate__styleFive');
+      puz.textContent = arr[i];
+      puz.dataset.id = arr[i];
+      game.appendChild(puz);
+      
+      if(arr[i] === '') {
+      puz.classList.add('zero__plate');
+      // puz.textContent =  '';
+      }
+      
+      
+      }
+      }
+      createGame2(matrix);
+
+      const plate = document.querySelectorAll('.plate__styleFive');
+      function render(matrix, plates) {
+      matrix.forEach((e, index) => {
+      plate[index].textContent = e;
+      })
+      };
+
+      plate.forEach((e, index) => {
+
+        e.addEventListener('click', (e) => {
+        if(gameStart === true) {
+        if(matrix[index - 5] === '') {
+        let buf2 = matrix[index - 5];
+        matrix[index - 5] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        } else if(matrix[index + 5]===''){
+        
+        let buf2 = matrix[index + 5];
+        matrix[index + 5] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget); 
+        playSound();
+        
+        }else if(matrix[index + 1]===''){
+        let buf2 = matrix[index + 1];
+        matrix[index + 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        }else if(matrix[index - 1]===''){
+        let buf2 = matrix[index - 1];
+        matrix[index - 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        } else {
+        console.log(false)
+        }
+        }
+        })
+        })
+
+
+  
+
+
+}
+//Генерация игры 6на6
+const size6 = document.querySelector('.sizeSix'); 
+size6.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '6x6'
+  createGameSizeTSix();
+})
+
+function createGameSizeTSix() {
+  let matrix = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,];
+  matrix.push('');
+  let finalTarget = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,''];
+
+
+  start.addEventListener('click', e => {
+    gameStart = true;
+    matrix.sort(() => Math.random() - 0.2);
+    
+    matrix.forEach((e, index) => {
+    plate[index].textContent = e;
+    })
+    click = 0;
+    minute = 0;
+    seconds = 0;
+    document.querySelector('.click').textContent = `Clicks ${click}`;
+    document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    })
+
+    function createGame2(arr){
+      for(let i= 0; i < arr.length; i++){
+      let puz = document.createElement('div');
+      puz.classList.add('plate__styleSix');
+      puz.textContent = arr[i];
+      puz.dataset.id = arr[i];
+      game.appendChild(puz);
+      
+      if(arr[i] === '') {
+      puz.classList.add('zero__plate');
+      // puz.textContent =  '';
+      }
+      
+      
+      }
+      }
+      createGame2(matrix);
+
+      const plate = document.querySelectorAll('.plate__styleSix');
+      function render(matrix, plates) {
+      matrix.forEach((e, index) => {
+      plate[index].textContent = e;
+      })
+      };
+
+      plate.forEach((e, index) => {
+
+        e.addEventListener('click', (e) => {
+        if(gameStart === true) {
+        if(matrix[index - 6] === '') {
+        let buf2 = matrix[index - 6];
+        matrix[index - 6] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        } else if(matrix[index + 6]===''){
+        
+        let buf2 = matrix[index + 6];
+        matrix[index + 6] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget); 
+        playSound();
+        
+        }else if(matrix[index + 1]===''){
+        let buf2 = matrix[index + 1];
+        matrix[index + 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        }else if(matrix[index - 1]===''){
+        let buf2 = matrix[index - 1];
+        matrix[index - 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        } else {
+        console.log(false)
+        }
+        }
+        })
+        })
+
+}
+//Генерация игры 7на7
+
+const size7 = document.querySelector('.sizeSeven'); 
+size7.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '7x7'
+  createGameSizeTSeven();
+})
+
+function createGameSizeTSeven() {
+  let matrix = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48];
+  matrix.push('');
+  let finalTarget = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,''];
+
+
+  start.addEventListener('click', e => {
+    gameStart = true;
+    matrix.sort(() => Math.random() - 0.2);
+    
+    matrix.forEach((e, index) => {
+    plate[index].textContent = e;
+    })
+    click = 0;
+    minute = 0;
+    seconds = 0;
+    document.querySelector('.click').textContent = `Clicks ${click}`;
+    document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    })
+
+    function createGame2(arr){
+      for(let i= 0; i < arr.length; i++){
+      let puz = document.createElement('div');
+      puz.classList.add('plate__styleSeven');
+      puz.textContent = arr[i];
+      puz.dataset.id = arr[i];
+      game.appendChild(puz);
+      
+      if(arr[i] === '') {
+      puz.classList.add('zero__plate');
+      // puz.textContent =  '';
+      }
+      
+      
+      }
+      }
+      createGame2(matrix);
+
+      const plate = document.querySelectorAll('.plate__styleSeven');
+      function render(matrix, plates) {
+      matrix.forEach((e, index) => {
+      plate[index].textContent = e;
+      })
+      };
+
+      plate.forEach((e, index) => {
+
+        e.addEventListener('click', (e) => {
+        if(gameStart === true) {
+        if(matrix[index - 7] === '') {
+        let buf2 = matrix[index - 7];
+        matrix[index - 7] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        } else if(matrix[index + 7]===''){
+        
+        let buf2 = matrix[index + 7];
+        matrix[index + 7] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget); 
+        playSound();
+        
+        }else if(matrix[index + 1]===''){
+        let buf2 = matrix[index + 1];
+        matrix[index + 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        }else if(matrix[index - 1]===''){
+        let buf2 = matrix[index - 1];
+        matrix[index - 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        } else {
+        console.log(false)
+        }
+        }
+        })
+        })
+}
+//Генерация игры 8на8
+const size8 = document.querySelector('.sizeEight'); 
+size8.addEventListener('click', e => {
+  game.innerHTML = '';
+  sizeNameTitle.textContent = '8x8'
+  createGameSizeTEight();
+})
+
+function createGameSizeTEight() {
+  let matrix = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63];
+  matrix.push('');
+  let finalTarget = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63, ''];
+
+
+  start.addEventListener('click', e => {
+    gameStart = true;
+    matrix.sort(() => Math.random() - 0.2);
+    
+    matrix.forEach((e, index) => {
+    plate[index].textContent = e;
+    })
+    click = 0;
+    minute = 0;
+    seconds = 0;
+    document.querySelector('.click').textContent = `Clicks ${click}`;
+    document.querySelector('.timer').textContent = `Time ${minute}:${seconds}`;
+    })
+
+    function createGame2(arr){
+      for(let i= 0; i < arr.length; i++){
+      let puz = document.createElement('div');
+      puz.classList.add('plate__styleEight');
+      puz.textContent = arr[i];
+      puz.dataset.id = arr[i];
+      game.appendChild(puz);
+      
+      if(arr[i] === '') {
+      puz.classList.add('zero__plate');
+      // puz.textContent =  '';
+      }
+      
+      
+      }
+      }
+      createGame2(matrix);
+
+      const plate = document.querySelectorAll('.plate__styleEight');
+      function render(matrix, plates) {
+      matrix.forEach((e, index) => {
+      plate[index].textContent = e;
+      })
+      };
+
+      plate.forEach((e, index) => {
+
+        e.addEventListener('click', (e) => {
+        if(gameStart === true) {
+        if(matrix[index - 8] === '') {
+        let buf2 = matrix[index - 8];
+        matrix[index - 8] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        } else if(matrix[index + 8]===''){
+        
+        let buf2 = matrix[index + 8];
+        matrix[index + 8] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget); 
+        playSound();
+        
+        }else if(matrix[index + 1]===''){
+        let buf2 = matrix[index + 1];
+        matrix[index + 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        
+        }else if(matrix[index - 1]===''){
+        let buf2 = matrix[index - 1];
+        matrix[index - 1] = matrix[index];
+        matrix[index] = buf2;
+        getClicks()
+        render(matrix, plate);
+        isWin(matrix, finalTarget);
+        playSound();
+        } else {
+        console.log(false)
+        }
+        }
+        })
+        })
+}
+//Результаты
 let saveResult = [];
 
 window.addEventListener('load', e =>{

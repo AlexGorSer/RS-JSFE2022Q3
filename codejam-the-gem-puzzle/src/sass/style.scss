@@ -49,7 +49,7 @@ html {
   position: relative;
 }
 
-.plate__style {
+.plate__styleFour {
   position: relative;
   cursor: pointer;
   width: 100px;
@@ -60,6 +60,81 @@ html {
   justify-content: center;
   text-align: center;
   padding: 30px;
+  font-size: 3rem;
+  transition: transform 0.2s;
+}
+
+.plate__styleThree {
+  position: relative;
+  cursor: pointer;
+  width: 133.33px;
+  height: 134px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  font-size: 3rem;
+  transition: transform 0.2s;
+}
+
+.plate__styleFive {
+  position: relative;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 3rem;
+  transition: transform 0.2s;
+}
+
+.plate__styleSix {
+  position: relative;
+  cursor: pointer;
+  width: 66.66px;
+  height: 66.66px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  font-size: 3rem;
+  transition: transform 0.2s;
+}
+
+.plate__styleSeven {
+  position: relative;
+  cursor: pointer;
+  width: 57.14px;
+  height: 57.14px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 3rem;
+  transition: transform 0.2s;
+}
+
+.plate__styleEight {
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
   font-size: 3rem;
   transition: transform 0.2s;
 }
@@ -134,4 +209,29 @@ html {
 
 .row__style:last-child {
   margin-bottom: 20px;
+}
+
+.complexity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.size__name {
+  font-size: 2rem;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.size__container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.buttons__size {
+  width: 50px;
+  height: 25px;
+  font-size: 2rem;
 }
