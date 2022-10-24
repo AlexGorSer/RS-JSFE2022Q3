@@ -45,7 +45,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
-  transition: all 0.5s ease;
+  // transition: all 0.5s ease;
   position: relative;
 }
 
@@ -167,9 +167,9 @@ html {
   }
 }
 
-.puzzle__container {
-  position: relative;
-}
+// .puzzle__container {
+//   position: relative;
+// }
 
 .move-leftOne {
   animation-name: moveBot;
@@ -185,13 +185,10 @@ html {
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: absolute;
   width: 400px;
   // height: 400px;
   background-color: white;
   border: 1px solid black;
-  top: 15%;
-  right: 0%;
 }
 
 .res__title {
@@ -238,4 +235,87 @@ html {
 
 .muted {
   font-size: 2rem;
+}
+
+.popup__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 17, 17, 0.5);
+  top: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 429px) {
+  .buttons {
+    width: 70px;
+  }
+
+  .count__container {
+    gap: 2rem;
+  }
+
+  .size__container {
+    gap: 3px;
+  }
+
+  .game__container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .plate__styleThree {
+    width: 100px;
+    height: 100px;
+    padding: 25px
+  }
+
+  .plate__styleFour {
+    width: 75px;
+    height: 75px;
+    padding: 15px
+  }
+
+  .plate__styleFive {
+    width: 60px;
+    height: 60px;
+    padding: 10px
+  }
+
+  .plate__styleSix {
+    width: 50px;
+    height: 50px;
+    padding: 5px
+  }
+
+  .plate__styleSeven {
+    width: 42.85px;
+    height: 42.85px;
+    padding: 2px
+  }
+
+  .plate__styleEight {
+    width: 37.5px;
+    height: 37.5px;
+    padding: 0px
+  }
+
+  .res__container {
+    width: 300px;
+  }
+
+  .row__style {
+    width: 280px;
+  }
+
+  .muted {
+    font-size: 1rem;
+  }
+
+  .count__container {
+    font-size: 2rem;
+  }
 }

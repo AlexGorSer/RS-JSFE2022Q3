@@ -8,8 +8,8 @@ const gameContainer = document.querySelector('.puzzle__container');
 
 const start = document.querySelector('.start');
 
-alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
-alert('Нажмите на Play что-бы запустить изи мод для теста функций. Нажмите Shuffle and Start что-бы начать игру.');
+// alert('Привет! Проверьте будте добры, проверьте задание в последний день, мне осталось доделать немного!');
+// alert('Нажмите на Play что-бы запустить изи мод для теста функций. Нажмите Shuffle and Start что-бы начать игру.');
 
 let click = 0;
 let gameStart = false;
@@ -782,14 +782,20 @@ getResultsButton.addEventListener('click', e => {
   result = JSON.parse(result);
   result.sort((a, b) => a.clicks > b.clicks);
 
+  let container = document.createElement('div');
+  container.classList.add('popup__container');
+  gameContainer.appendChild(container);
+
   let resContainer = document.createElement('div');
   resContainer.classList.add('res__container');
-  gameContainer.appendChild(resContainer);
+  container.appendChild(resContainer);
+
 
   let title = document.createElement('h2');
   title.classList.add('res__title');
   resContainer.appendChild(title);
   title.textContent = 'Таблица результатов';
+
   if(result !== null) {
     result.forEach((e, index) => {
       let row = document.createElement('div');
@@ -799,17 +805,19 @@ getResultsButton.addEventListener('click', e => {
   
     })
   
-    let node = document.querySelector('.res__container');
+    let node = document.querySelector('.popup__container');
     node.addEventListener('click', e =>{
       node.remove();
     })
   } else {
+
+
     let row = document.createElement('div');
     row.classList.add('row__style');
     resContainer.appendChild(row);
     row.textContent = 'Таблица пустая'
 
-    let node = document.querySelector('.res__container');
+    let node = document.querySelector('.popup__container');
     node.addEventListener('click', e =>{
       node.remove();
     })
