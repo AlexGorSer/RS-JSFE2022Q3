@@ -9,11 +9,78 @@
 </head>
 
 <body>
-  <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quaerat quibusdam similique inventore excepturi
-    neque architecto natus possimus id deserunt odio eaque ullam, consectetur nesciunt in placeat dolores ex labore,
-    illo obcaecati. Pariatur, hic, incidunt rem, repellendus a quasi veniam esse assumenda nobis laborum libero? Qui
-    numquam ea sint corrupti!</h1>
-  <img src="./assets/img/bird.06a46938.jpg" alt="">
+  <main class="game__container__songbird">
+    <div class="container songbird__container">
+      <div class="row">
+        <div class="col-12 songbird__logo-container">
+          <img src="./assets/svg/logo.4f82cd73.svg" alt="" class="songbird__logo">
+          <h3 class="songbird__score">Score: 0</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="songbird__pagination">
+            <ul class="pagination flex-wrap">
+              <li class="page-item"><a class="page-link active" href="#">Разминка</a></li>
+              <li class="page-item"><a class="page-link" href="#">Воробьиные</a></li>
+              <li class="page-item"><a class="page-link" href="#">Лесные птицы</a></li>
+              <li class="page-item"><a class="page-link" href="#">Певчие птицы</a></li>
+              <li class="page-item"><a class="page-link" href="#">Хищные птицы</a></li>
+              <li class="page-item"><a class="page-link" href="#">Морские птицы</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row songbird__random p-3">
+        <div class="col-md-4 audio__flex">
+          <img src="./assets/img/bird.06a46938.jpg" alt="" class="songbird__random-img">
+        </div>
+        <div class="col-md-8 audio__flex">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Вид птицы</li>
+            <li class="list-group-item songbird__audio-container">
+              <audio class="songbird__random-audio" src="https://dl.zvuki.ru/5/5678/mp3/1.mp3" controls></audio>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row songbird__birds-items">
+        <div class="col-md-6">
+          <ul class="list-group songbird__list">
+            <li class="list-group-item">Элемент</li>
+            <li class="list-group-item">Второй элемент</li>
+            <li class="list-group-item">Третий элемент</li>
+            <li class="list-group-item">Четвертый элемент</li>
+            <li class="list-group-item">И пятый</li>
+            <li class="list-group-item">И пятый</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-3 songbird__card-container">
+            <img src="./assets/img/bird.06a46938.jpg" class="card-img-top songbird__card-img" alt="bird">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Имя птицы</li>
+              <li class="list-group-item">Вид птицы</li>
+              <li class="list-group-item songbird__audio-container">
+                <audio class="songbird__random-audio" src="https://dl.zvuki.ru/5/5678/mp3/1.mp3" controls></audio>
+              </li>
+            </ul>
+            <div class="card-body">
+              <p class="card-text">Сраное описание сраной птицы. Небольшой пример текста, который должен основываться на
+                названии карты и составлять
+                основную часть содержимого карты.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn btn-secondary btn-lg songbird__button-next">Next</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
