@@ -63,6 +63,8 @@ body {
 
 .songbird__random-img {
   border-radius: 10px;
+  width: 200px;
+  height: 155px;
 }
 
 .songbird__random-audio {
@@ -79,6 +81,8 @@ body {
   height: 155px;
   margin: auto;
   margin-bottom: 10px;
+  border-radius: 10px;
+
 }
 
 .songbird__list {
@@ -127,4 +131,21 @@ body {
   align-items: center;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.active__true {
+  color: green;
+}
+
+.active__false {
+  color: red;
+}
+
+.birds-list:hover {
+  cursor: pointer;
+  background-color: #444;
+}
+
+.songbird__random-list {
+  width: 100%;
 }
