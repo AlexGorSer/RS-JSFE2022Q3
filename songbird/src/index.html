@@ -39,7 +39,23 @@
           <ul class="list-group list-group-flush songbird__random-list">
             <li class="list-group-item random__bird__name">********</li>
             <li class="list-group-item songbird__audio-container">
-              <audio class="songbird__random-audio-header" src="https://dl.zvuki.ru/5/5678/mp3/1.mp3" controls></audio>
+              <div class="player-container">
+                <div class="player-button">
+                  <img src="./assets/svg/play-fill.svg" alt="" class="player-icon header-icon">
+                </div>
+                <audio class="songbird__random-audio-header" src="https://dl.zvuki.ru/5/5678/mp3/1.mp3"></audio>
+                <div class="player-progress">
+                  <div class="progress-bar bar-one">
+                    <div class="fill-one" style="width: 0%;"></div>
+                  </div>
+                  <div class="progress-time">
+                    <div class="correct-time">00:00</div>
+                    <div class="duration">00:00</div>
+                  </div>
+                </div>
+                <div class="mute-button"></div>
+              </div>
+
             </li>
           </ul>
         </div>
@@ -62,7 +78,23 @@
               <li class="list-group-item cards bird-name"></li>
               <li class="list-group-item cards bird-species"></li>
               <li class="list-group-item songbird__audio-container">
-                <audio class="songbird__random-audio bird-audio" src="#" controls></audio>
+                <div class="player-container">
+                  <div class="player-button button-two">
+                    <img src="./assets/svg/play-fill.svg" alt="" class="player-icon card-icon">
+                  </div>
+                  <audio class="songbird__random-audio bird-audio" src="#"></audio>
+                  <div class="player-progress">
+                    <div class="progress-bar bar-two">
+                      <div class="fill-two" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-time">
+                      <div class="correct-time">00:00</div>
+                      <div class="duration">00:00</div>
+                    </div>
+                  </div>
+                  <div class="mute-button"></div>
+                </div>
+
               </li </ul>
               <div class="card-body">
                 <p class="card-text card-text bird-description">Нажмите на название птиц</p>
@@ -78,6 +110,29 @@
       </div>
     </div>
   </main>
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="player-container">
+          <div class="player-button">
+            <img src="./assets/svg/play-fill.svg" alt="" class="player-icon">
+          </div>
+          <audio class="audio" src="./assets/sound/win.a1e9e8b6.mp3"></audio>
+          <div class="player-progress">
+            <div class="progress-bar">
+              <div class="fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-time">
+              <div class="correct-time">00:00</div>
+              <div class="duration">00:00</div>
+            </div>
+          </div>
+          <div class="mute-button"></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </body>
 
 </html>
