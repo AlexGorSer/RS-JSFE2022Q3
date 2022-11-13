@@ -121,3 +121,25 @@ function setTimeAudio(duration, currentTime, pathDur, pathCorr) {
   pathCorr.textContent = `${corrMin.toString().padStart(2,0)}:${corrSec.toString().padStart(2,0)}`;
 
 }
+
+
+const muteBar = document.querySelectorAll('.mute-fill');
+const muteProgress = document.querySelectorAll('.mute-progress');
+
+
+
+muteProgress[0].addEventListener('click',  e => {
+  const sliderWidth = muteProgress[0].clientWidth;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  muteBar[0].style.width = `${newVolume * 100}%`;
+
+});
+
+muteProgress[1].addEventListener('click',  e => {
+  const sliderWidth = muteProgress[1].clientWidth;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audioTwo.volume = newVolume;
+  muteBar[1].style.width = `${newVolume * 100}%`;
+
+});
