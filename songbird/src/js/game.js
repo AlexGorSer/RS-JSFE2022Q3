@@ -2,6 +2,7 @@ import birdsData from './birds.js';
 import birdDef from '../assets/img/bird.06a46938.jpg';
 import winAudio from '../assets/sound/win.a1e9e8b6.mp3';
 import errAudio from '../assets/sound/error.165166d5.mp3';
+import './modal';
 import './player.js';
 
 
@@ -35,6 +36,9 @@ const birdName  = document.querySelector('.bird-name');
 const birdSpec  = document.querySelector('.bird-species');
 const birdDescription  = document.querySelector('.bird-description');
 
+const songInst = document.querySelector('.song__bird-none');
+const songBirdContainer = document.querySelector('.songbird__card-container');
+
 let globalIndex = 0;
 let gameEnd = true;
 let objScore = {
@@ -62,7 +66,7 @@ function createRandomBirds() {
       globalIndex++;
       setDefLine();
       nextGameItems(globalIndex);
-
+      nextButton.classList.remove('active-button');
       randomArr = shuffleArr(birdsData, globalIndex);
       randomNum = getRandomIntInclusive(0, randomArr.length-1);
       getRandomBird(audioBird, randomNum, randomArr);
@@ -77,6 +81,9 @@ function createRandomBirds() {
       correctTime[1].textContent = '00:00';
       fillProgressTwo.style.width = `${0}%`;
       audioTwo.pause();
+
+      songInst.classList.remove('dispay-none');
+      songBirdContainer.classList.add('dispay-none');
 
     }
     
@@ -100,6 +107,7 @@ function createRandomBirds() {
         scoreHeader.textContent = `Score: ${objScore.score}`;
         new Audio(winAudio).play();
         e.target.classList.add('active__true');
+        nextButton.classList.add('active-button');
         randomBirdName.textContent = birdName.textContent;
         birdRandomIgm.src = birdImg.src;
 
@@ -109,6 +117,10 @@ function createRandomBirds() {
         
       }
     }
+    getScore();
+    songInst.classList.add('dispay-none');
+    songBirdContainer.classList.remove('dispay-none');
+
     createCard(nameTarget, randomArr);
 
   })
@@ -116,7 +128,20 @@ function createRandomBirds() {
 
 
 
+function getScore() {
+  if (globalIndex === 5 && gameEnd === false) {
 
+    document.querySelector('.score__modal').textContent =`Молодец! Твой счет: ${objScore.score}`;
+    document.querySelector('.modal__score').classList.remove('dispay-none');
+    document.querySelector('.score__modal__button').addEventListener('click', e=> {
+      document.querySelector('.modal__score').classList.add('dispay-none');
+      objScore.score = 0;
+      globalIndex= -1;
+      gameEnd = false;
+      setDefLine();
+    })
+  } 
+}
 
 
 function createCard(name, arr) {

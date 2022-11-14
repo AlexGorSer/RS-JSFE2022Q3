@@ -116,6 +116,18 @@ body {
   margin-top: 20px;
 }
 
+.songbird__button-next:hover {
+  background-color: #303030;
+}
+
+.songbird__button-next:active {
+  background-color: #303030 !important;
+}
+
+.active-button {
+  background-color: #00efb2;
+}
+
 .songbird__logo {
   width: 200px;
   height: 55px;
@@ -250,4 +262,141 @@ body {
   // width: 5%;
   height: 100%;
   background-color: #007c5d;
+}
+
+.dispay-none {
+  display: none !important;
+}
+
+.song__bird-none {
+  width: 100%;
+  height: 93%;
+  color: white;
+  background-color: #303030;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.songbird__nav {
+  background-color: #303030;
+
+}
+
+.songbird__header-logo {
+  width: 200px;
+  height: 55px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.songbird__footer {
+  margin-top: 98px;
+}
+
+.footer__logo {
+  width: 200px;
+  height: 55px;
+}
+
+.songbird__footer {
+  background-color: #303030;
+}
+
+.footer__logo-git {
+  width: 50px;
+  height: 50px;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.date__text {
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+.footer__logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.start__pages {
+  position: fixed;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  right: 0%;
+  transition: 0.3s;
+}
+
+.start__pages__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-item {
+  width: 100%;
+  height: 100%;
+}
+
+.start__pages-logo {
+  margin-top: 50px;
+}
+
+.start__pages-title {
+  color: white;
+  text-align: center;
+}
+
+.start__pages-title-container {
+  margin-top: 50px;
+}
+
+
+.button__start {
+  margin-top: 50px;
+}
+
+.hidden__start-page {
+  top: -100%;
+}
+
+.modal__score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(34, 34, 34, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  right: 0%;
+  transition: 0.3s;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background-color: #222;
+  color: white;
+
+  border-radius: 20px;
+}
+
+.score__modal {
+  text-align: center;
 }

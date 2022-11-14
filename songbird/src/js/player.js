@@ -143,3 +143,21 @@ muteProgress[1].addEventListener('click',  e => {
   muteBar[1].style.width = `${newVolume * 100}%`;
 
 });
+
+const birdsListContainer = document.querySelector('.songbird__list');
+const nextButton = document.querySelector('.songbird__button-next');
+const birdsList =  document.querySelectorAll('.birds-list');
+
+birdsListContainer.addEventListener('click', e => {
+  // songPlayHeader = false;
+  songPlayCard = false;
+  // headerIcon.src = playIcon;
+  cardIcon.src = playIcon;
+})
+// birdsList.forEach()
+nextButton.addEventListener('click', e => {
+  songPlayHeader = false;
+  songPlayCard = false;
+  headerIcon.src = playIcon;
+  cardIcon.src = playIcon;
+})
