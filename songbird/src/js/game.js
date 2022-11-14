@@ -4,6 +4,7 @@ import winAudio from '../assets/sound/win.a1e9e8b6.mp3';
 import errAudio from '../assets/sound/error.165166d5.mp3';
 import './modal';
 import './player.js';
+import './galleryModal';
 
 
 
@@ -131,7 +132,7 @@ function createRandomBirds() {
 function getScore() {
   if (globalIndex === 5 && gameEnd === false) {
 
-    document.querySelector('.score__modal').textContent =`Молодец! Твой счет: ${objScore.score}`;
+    document.querySelector('.score__modal').textContent =`Молодец! Твой счет: ${objScore.score} из 36`;
     document.querySelector('.modal__score').classList.remove('dispay-none');
     document.querySelector('.score__modal__button').addEventListener('click', e=> {
       document.querySelector('.modal__score').classList.add('dispay-none');
