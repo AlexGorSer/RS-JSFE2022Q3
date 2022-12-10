@@ -1,7 +1,7 @@
 import './news.css';
 
 
-interface Articles {
+export interface Articles {
   readonly source: {
     readonly id: number | null;
     readonly name: string;
