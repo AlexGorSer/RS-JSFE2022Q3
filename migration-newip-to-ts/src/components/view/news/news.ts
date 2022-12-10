@@ -18,14 +18,14 @@ export interface Articles {
 }
 
 class News {
-  draw(data: []): void {
-    const news = data.length >= 10 ? data.filter((_item: string, idx: number) => idx < 10) : data;
+  draw(data: Articles[]): void {
+    const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
     const fragment = <DocumentFragment>document.createDocumentFragment();
     const newsItemTemp = <HTMLTemplateElement>document.querySelector('#newsItemTemp');
 
-    news.forEach((item: Articles, idx: number) => {
-      const newsClone = <HTMLTemplateElement>newsItemTemp.content.cloneNode(true) as HTMLTemplateElement;
+    news.forEach((item, idx) => {
+      const newsClone = newsItemTemp.content.cloneNode(true) as HTMLTemplateElement;
 
       if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
 

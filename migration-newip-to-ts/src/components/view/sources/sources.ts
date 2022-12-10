@@ -1,14 +1,14 @@
 import './sources.css';
-interface Sources {
+export interface SourcesData {
   id: string;
   name: string;
 }
 class Sources {
-  draw(data: []) {
+  draw(data: SourcesData[]) {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
-    data.forEach((item: Sources) => {
+    data.forEach((item: SourcesData) => {
       const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
 
       (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;
