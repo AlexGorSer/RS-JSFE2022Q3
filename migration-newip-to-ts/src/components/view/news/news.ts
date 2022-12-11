@@ -2,19 +2,17 @@ import './news.css';
 
 
 export interface Articles {
-  readonly source: {
-    readonly id: number | null;
-    readonly name: string;
+  source: {
+    id: number | null;
+    name: string;
   },
-  readonly author: string;
-  readonly title: string;
-  readonly description: string;
-  readonly url: string;
-  readonly urlToImage: string;
-  readonly publishedAt: string;
-  readonly content: string;
-
-
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
 }
 
 class News {

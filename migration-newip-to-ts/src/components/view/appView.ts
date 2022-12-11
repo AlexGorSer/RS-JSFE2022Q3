@@ -1,16 +1,17 @@
 import News, { Articles } from './news/news';
 import Sources, { SourcesData } from './sources/sources';
 
-interface App {
-  readonly status: string;
-  readonly totalResults: number;
-  readonly articles: Articles[];
-  readonly sources: SourcesData[];
+export interface App {
+  // status: string;
+  // totalResults: number;
+  articles?: Articles[];
+  sources?: SourcesData[];
+
 }
 
 export class AppView {
-  readonly news: News;
-  readonly sources: Sources;
+  news: News;
+  sources: Sources;
   constructor() {
     this.news = new News();
     this.sources = new Sources();
