@@ -1,13 +1,7 @@
-import News, { Articles } from './news/news';
-import Sources, { SourcesData } from './sources/sources';
+import News from './news/news';
+import Sources from './sources/sources';
+import { App } from "../interface";
 
-export interface App {
-  // status: string;
-  // totalResults: number;
-  articles?: Articles[];
-  sources?: SourcesData[];
-
-}
 
 export class AppView {
   news: News;

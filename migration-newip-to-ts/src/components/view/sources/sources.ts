@@ -1,8 +1,6 @@
 import './sources.css';
-export interface SourcesData {
-  id: string;
-  name: string;
-}
+import { SourcesData } from "../../interface";
+
 class Sources {
   draw(data: SourcesData[]) {
     const fragment = document.createDocumentFragment();

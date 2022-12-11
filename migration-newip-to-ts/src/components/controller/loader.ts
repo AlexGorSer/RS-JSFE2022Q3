@@ -1,9 +1,10 @@
-type OptionsObj = { [key: string]: string };
-interface Resp {
-  endpoint: string;
-  // options: Record<string, string>;
-  options?: { sources?: string };
-}
+import { IResp } from "../interface";
+import { OptionsObj } from "../interface";
+import { TCallback } from "../interface";
+
+
+
+// type TCallback = (data: App) => void;
 
 class Loader {
   baseLink: string;
@@ -16,8 +17,8 @@ class Loader {
 
 
   getResp(
-    { endpoint, options = {} }: Resp,
-    callback: <T>(data: T) => void = () => {
+    { endpoint, options = {} }: IResp,
+    callback: TCallback = () => {
       console.error('No callback for GET response');
     },
   ) {
@@ -44,7 +45,7 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: <T>(data: T) => void, options = {}) {
+  load(method: string, endpoint: string, callback: TCallback, options = {}) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())

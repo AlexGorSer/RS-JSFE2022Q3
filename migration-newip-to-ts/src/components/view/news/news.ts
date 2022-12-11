@@ -1,22 +1,9 @@
 import './news.css';
+import { Articles } from "../../interface";
 
-
-export interface Articles {
-  source: {
-    id: number | null;
-    name: string;
-  },
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string;
-}
 
 class News {
-  draw(data: Articles[]): void {
+  draw(data: Articles[]) {
     const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
     const fragment = <DocumentFragment>document.createDocumentFragment();
