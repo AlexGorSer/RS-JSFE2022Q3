@@ -2,7 +2,7 @@ type OptionsObj = { [key: string]: string };
 interface Resp {
   endpoint: string;
   // options: Record<string, string>;
-  options: OptionsObj;
+  options?: { sources?: string };
 }
 
 class Loader {
