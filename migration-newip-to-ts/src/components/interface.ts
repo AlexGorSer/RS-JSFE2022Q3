@@ -1,13 +1,13 @@
-export type OptionsObj = { [key: string]: string };
+export type TOptionsObj = { [key: string]: string };
 
-export type TCallback = (data: App) => void;
+export type TCallback = (data: IApp) => void;
 
 export interface IResp {
   endpoint: string;
   options?: { sources?: string };
 }
 
-export interface Articles {
+export interface IArticles {
   source: {
     name: string;
   },
@@ -19,13 +19,18 @@ export interface Articles {
   publishedAt: string;
 }
 
-export interface SourcesData {
+export interface ISourcesData {
   id: string;
   name: string;
 }
 
-export interface App {
-  articles?: Articles[];
-  sources?: SourcesData[];
+export interface IApp {
+  articles?: IArticles[];
+  sources?: ISourcesData[];
 
+}
+
+export enum ECodeStatus {
+  Unauthorized = 401,
+  NotFound = 404,
 }

@@ -1,16 +1,12 @@
-import { IResp } from "../interface";
-import { OptionsObj } from "../interface";
+import { ECodeStatus, IResp } from "../interface";
+import { TOptionsObj } from "../interface";
 import { TCallback } from "../interface";
-
-
-
-// type TCallback = (data: App) => void;
 
 class Loader {
   baseLink: string;
-  options: OptionsObj;
+  options: TOptionsObj;
 
-  constructor(baseLink: string, options: OptionsObj) {
+  constructor(baseLink: string, options: TOptionsObj) {
     this.baseLink = baseLink;
     this.options = options;
   }
@@ -27,14 +23,14 @@ class Loader {
 
   errorHandler(res: Response): Response {
     if (!res.ok) {
-      if (res.status === 401 || res.status === 404) { console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`); }
+      if (res.status === ECodeStatus.Unauthorized || res.status === ECodeStatus.NotFound) { console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`); }
       throw Error(res.statusText);
     }
 
     return res;
   }
 
-  makeUrl(options: OptionsObj, endpoint: string): string {
+  makeUrl(options: TOptionsObj, endpoint: string): string {
     const urlOptions = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
