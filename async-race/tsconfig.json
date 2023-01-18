@@ -1,0 +1,13 @@
+{
+  "module": "commonjs",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "strict": true,
+    "moduleResolution": "node"
+  },
+  "files": ["src/index.ts"]
+}
