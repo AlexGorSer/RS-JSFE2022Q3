@@ -1,4 +1,4 @@
-import { ICarsData } from "../types/interface";
+import { ICarsData, TBody } from "../types/interface";
 
 const URL = "http://127.0.0.1:3000";
 
@@ -16,12 +16,7 @@ export const getCarsGarage = async (page: number, limit = 7) => {
   return carsData;
 };
 
-interface IBody {
-  name: string;
-  color: string;
-}
-
-export const postData = async (body: IBody) => {
+export const postData = async (body: TBody) => {
   await fetch(`${URL}${PATH.garage}`, {
     method: "POST",
     headers: {
