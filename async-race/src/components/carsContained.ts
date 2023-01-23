@@ -12,6 +12,13 @@ ${carSVG}
 </div>
 </div>`;
 
+export const pageButtons = (): string =>
+  `
+<div class="buttons-pages">
+<button class="prev"><=</button>
+<button class="next">=></button>
+</div>`;
+
 export const carMarcs = [
   "Автокам",
   "Бронто",

@@ -1,7 +1,7 @@
 import { getCarsGarage, deleteCar, postData, putData } from "./API/Api";
 import carsStorage from "./carsStorage/carsStorage";
 import { carSVG, getRandomColorForCar } from "./components/carSVG";
-import { carMarcs, carsCard } from "./components/carsContained";
+import { carMarcs, carsCard, pageButtons } from "./components/carsContained";
 import { Root } from "./components/Root";
 import { forms } from "./components/Forms";
 import { getRandomNumber } from "./components/helps";
@@ -33,6 +33,14 @@ but.addEventListener("click", async () => {
 
 const getGarage = () => {
   Root.root.innerHTML = "";
+  const page = document.createElement("h2");
+  Root.root.appendChild(page);
+  page.innerText = `
+  Cars Garage: ${carsStorage.carsCount} 
+  ________________________________
+
+  Page: ${carsStorage.carsPage}`;
+  Root.root.insertAdjacentHTML("beforeend", pageButtons());
   carsStorage.cars.map((e) =>
     Root.root.insertAdjacentHTML(
       "beforeend",
@@ -44,7 +52,38 @@ getGarage();
 
 document
   .querySelector(".cars-container")
-  ?.addEventListener("click", (e) => clickCardButtons(e));
+  ?.addEventListener("click", async (e) => {
+    const target = <HTMLElement>e.target;
+    await getPages(target);
+    await clickCardButtons(e);
+  });
+alert(
+  "Привет, можете проверить в последний день дедлайна? Мне осталось  немного, заранее спасибо!"
+);
+const getPages = async (target: HTMLElement) => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const page = +carsStorage.carsCount! / 7;
+  if (target.classList.contains("next")) {
+    console.log(Math.round(page));
+    if (page > carsStorage.carsPage) {
+      carsStorage.carsPage++;
+      console.log(carsStorage.carsPage);
+      await getCarsGarage(carsStorage.carsPage);
+      await upDateGarage();
+      await getGarage();
+    }
+  }
+  if (target.classList.contains("prev")) {
+    console.log(carsStorage.carsPage);
+    if (1 < carsStorage.carsPage) {
+      carsStorage.carsPage--;
+      console.log(carsStorage.carsPage);
+      await getCarsGarage(carsStorage.carsPage);
+      await upDateGarage();
+      await getGarage();
+    }
+  }
+};
 
 const clickCardButtons = async (event: Event) => {
   const target = <HTMLElement>event.target;
@@ -66,6 +105,10 @@ export const upDateGarage = async () => {
   const { items, carsCount } = await getCarsGarage(carsStorage.carsPage);
   carsStorage.cars = items;
   carsStorage.carsCount = carsCount;
+
+  carsStorage.selectCar.id = 0;
+  carsStorage.selectCar.name = "";
+  carsStorage.selectCar.color = "";
   console.log(carsStorage.cars, carsStorage.carsCount);
 };
 
@@ -102,7 +145,7 @@ document
 const putCar = async (e: Event) => {
   e.preventDefault();
   const ref = <HTMLFormElement>e.target;
-  // console.log(ref.text.value, ref.color.value);
+
   if (ref.text.value !== "") {
     const body = {
       name: ref.text.value,
@@ -114,9 +157,6 @@ const putCar = async (e: Event) => {
       await getGarage();
     }
   }
-  carsStorage.selectCar.id = 0;
-  carsStorage.selectCar.name = "";
-  carsStorage.selectCar.color = "";
   ref.text.value = "";
   ref.color.value = "#000000";
 };
