@@ -1,0 +1,37 @@
+h1 {
+  font-size: 60px;
+}
+
+.cars_cards-container {
+  display: flex;
+}
+.car-card {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+.buttons-car {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+.svg-car-container {
+  align-self: flex-end;
+  width: 100%;
+}
+.car-post-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 10px 10px 10px;
+}
+.cars_cards-buttons {
+  border: 1px solid black;
+  width: 50%;
+  padding: 10px;
+}
+
+.car-put-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 10px 10px 10px;
+}
