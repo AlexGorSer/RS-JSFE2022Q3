@@ -27,7 +27,20 @@ export const postData = async (body: TBody) => {
 };
 
 export const deleteCar = async (id: number) => {
-  await fetch(`${URL}${PATH.garage}/${id}`, {
+  const resp = await fetch(`${URL}${PATH.garage}/${id}`, {
     method: "DELETE",
+  });
+  resp.status === 200
+    ? console.log("Car DELETED")
+    : console.error(new Error("Fast click"));
+};
+
+export const putData = async (id: number, body: TBody) => {
+  await fetch(`${URL}${PATH.garage}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
   });
 };

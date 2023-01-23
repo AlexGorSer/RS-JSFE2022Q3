@@ -5,4 +5,9 @@ export default {
   carsPage: 1,
   cars,
   carsCount,
+  selectCar: {
+    id: 0,
+    name: "",
+    color: "",
+  },
 };

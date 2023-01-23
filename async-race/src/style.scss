@@ -17,5 +17,21 @@ h1 {
 }
 .svg-car-container {
   align-self: flex-end;
-  width: 75%;
+  width: 100%;
+}
+.car-post-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 10px 10px 10px;
+}
+.cars_cards-buttons {
+  border: 1px solid black;
+  width: 50%;
+  padding: 10px;
+}
+
+.car-put-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 10px 10px 10px;
 }
