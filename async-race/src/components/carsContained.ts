@@ -4,12 +4,12 @@ export const carsCard = (carName: string, carSVG: string, id: number): string =>
   <h2 class="cars-card-name">${carName}</h2>
   <button class="cars-card-select" id="${id}">select</button>
   <button class="cars-card-remove" id="${id}">remove</button>
-  <button class="cars-card-start" id="${id}">start</button>
-  <button class="cars-card-stope" id="${id}">stope</button>
+  <button class="cars-card-start  id-${id}" id="${id}">start</button>
+  <button class="cars-card-stope  id-${id}" id="${id}" disabled>stope</button>
 </div>
 <div class="svg-car-container">
 ${carSVG}
-<div class="finish-${id}"><?xml version="1.0" encoding="iso-8859-1"?>
+<div class="finish finish-${id}"><?xml version="1.0" encoding="iso-8859-1"?>
 <svg height="100px" width="100px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 20.695 20.695" xml:space="preserve">
 <g>
@@ -285,4 +285,29 @@ export const carMarcs = [
   "Zibar",
   "Zotye",
   "ZX",
+];
+
+export const carModel = [
+  "Elantra",
+  "Fusion",
+  "Jetta",
+  "100",
+  "80",
+  "Civic",
+  "M5",
+  "90",
+  "A3",
+  "Juke",
+  "Cayenne",
+  "A4",
+  "G63",
+  "Camry",
+  "Granta",
+  "Vesta",
+  "Rio",
+  "Creta",
+  "Niva",
+  "Solaris",
+  "Largus",
+  "Duster",
 ];

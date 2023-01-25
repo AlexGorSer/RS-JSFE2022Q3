@@ -17,7 +17,7 @@ export const getRandomNumber = (max: number, min = 0) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const getGarage = () => {
+export const getGarage = async () => {
   Root.root.innerHTML = "";
   const page = document.createElement("h2");
   Root.root.appendChild(page);
@@ -27,7 +27,8 @@ export const getGarage = () => {
 
   Page: ${carsStorage.carsPage}`;
   Root.root.insertAdjacentHTML("beforeend", pageButtons());
-  carsStorage.cars.map((e) =>
+
+  carsStorage.cars.map(async (e) =>
     Root.root.insertAdjacentHTML(
       "beforeend",
       `${carsCard(e.name, carSVG(e.color, e.id), e.id)}`
@@ -39,20 +40,20 @@ export const getPages = async (target: HTMLElement) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const page = +carsStorage.carsCount! / 7;
   if (target.classList.contains("next")) {
-    console.log(Math.round(page));
+    // console.log(Math.round(page));
     if (page > carsStorage.carsPage) {
       carsStorage.carsPage++;
-      console.log(carsStorage.carsPage);
+      // console.log(carsStorage.carsPage);
       await getCarsGarage(carsStorage.carsPage);
       await upDateGarage();
       await getGarage();
     }
   }
   if (target.classList.contains("prev")) {
-    console.log(carsStorage.carsPage);
+    // console.log(carsStorage.carsPage);
     if (1 < carsStorage.carsPage) {
       carsStorage.carsPage--;
-      console.log(carsStorage.carsPage);
+      // console.log(carsStorage.carsPage);
       await getCarsGarage(carsStorage.carsPage);
       await upDateGarage();
       await getGarage();
@@ -77,40 +78,31 @@ export const clickCardButtons = async (event: Event) => {
 
     ref.text.value = carsStorage.selectCar.name;
     ref.color.value = carsStorage.selectCar.color;
-    console.log(carsStorage.selectCar);
+    // console.log(carsStorage.selectCar);
   }
 
   if (target.classList.contains("cars-card-start")) {
-    // const foundCar = carsStorage.cars.filter((e) => e.id === +target.id);
-    // const { velocity, distance } = await getEngine(target.id, "started");
     startCarAnimation(target.id);
-    // const time = Math.round(distance / velocity);
-
-    // const carSVGTarget = <HTMLElement>(
-    //   document.querySelector(`.car-${target.id}`)
-    // );
-    // const finishElemFlag = <HTMLElement>(
-    //   document.querySelector(`.finish-${target.id}`)
-    // );
-
-    // const distanceBetweenElem = getBetweenElement(carSVGTarget, finishElemFlag);
-
-    // console.log(distanceBetweenElem);
-    // const state = carAnimation(carSVGTarget, distanceBetweenElem, time);
-
-    // console.log(state);
-    // console.log(velocity, distance);
-    // const { success } = await driveCar(target.id);
-
-    // if (!success) window.cancelAnimationFrame(state.id);
-    // console.log(target.id, foundCar[0]);
   }
 
   if (target.classList.contains("cars-card-stope")) {
-    const foundCar = carsStorage.cars.filter((e) => e.id === +target.id);
+    // const foundCar = carsStorage.cars.filter((e) => e.id === +target.id);
+    const startButton = <HTMLFormElement>(
+      document.querySelector(`.cars-card-start.id-${target.id}`)
+    );
+    const stopeButton = <HTMLFormElement>(
+      document.querySelector(`.cars-card-stope.id-${target.id}`)
+    );
 
-    await getEngine(target.id, "stopped");
-    console.log(target.id, foundCar[0]);
+    startButton.disabled = false;
+    stopeButton.disabled = true;
+    getEngine(target.id, "stopped");
+    const carSVGTarget = <HTMLElement>(
+      document.querySelector(`.car-${target.id}`)
+    );
+    window.cancelAnimationFrame(carsStorage.animationStorageID[+target.id].id);
+    carSVGTarget.style.translate = `0px`;
+    // console.log(target.id, foundCar[0]);
   }
 };
 export const upDateGarage = async () => {
@@ -121,7 +113,7 @@ export const upDateGarage = async () => {
   carsStorage.selectCar.id = 0;
   carsStorage.selectCar.name = "";
   carsStorage.selectCar.color = "";
-  console.log(carsStorage.cars, carsStorage.carsCount);
+  // console.log(carsStorage.cars, carsStorage.carsCount);
 };
 
 export const postCar = async (e: Event) => {
@@ -191,7 +183,8 @@ export const getBetweenElement = (
 ) => {
   const start =
     firstElem.getBoundingClientRect().x +
-    firstElem.getBoundingClientRect().width / 2;
+    firstElem.getBoundingClientRect().width / 2 -
+    100;
   const finish =
     secondElem.getBoundingClientRect().x +
     secondElem.getBoundingClientRect().width / 2;
@@ -201,6 +194,15 @@ export const getBetweenElement = (
 
 export const startCarAnimation = async (id: string) => {
   const { velocity, distance } = await getEngine(id, "started");
+  const startButton = <HTMLFormElement>(
+    document.querySelector(`.cars-card-start.id-${id}`)
+  );
+  const stopeButton = <HTMLFormElement>(
+    document.querySelector(`.cars-card-stope.id-${id}`)
+  );
+
+  startButton.disabled = true;
+  stopeButton.disabled = false;
 
   const time = Math.round(distance / velocity);
 
@@ -209,12 +211,18 @@ export const startCarAnimation = async (id: string) => {
 
   const distanceBetweenElem = getBetweenElement(carSVGTarget, finishElemFlag);
 
-  console.log(distanceBetweenElem);
-  const state = carAnimation(carSVGTarget, distanceBetweenElem, time);
+  carsStorage.animationStorageID[+id] = carAnimation(
+    carSVGTarget,
+    distanceBetweenElem,
+    time
+  );
 
-  console.log(state);
-  console.log(velocity, distance);
+  // console.log(distanceBetweenElem);
+  // console.log(state);
+  // console.log(velocity, distance);
   const { success } = await driveCar(id);
+  console.log(carsStorage.animationStorageID);
 
-  if (!success) window.cancelAnimationFrame(state.id);
+  if (!success)
+    window.cancelAnimationFrame(carsStorage.animationStorageID[+id].id);
 };

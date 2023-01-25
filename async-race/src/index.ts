@@ -1,7 +1,7 @@
 import { postData } from "./API/Api";
 
 import { getRandomColorForCar } from "./components/carSVG";
-import { carMarcs } from "./components/carsContained";
+import { carMarcs, carModel } from "./components/carsContained";
 import { Root } from "./components/Root";
 import { forms } from "./components/Forms";
 import {
@@ -34,7 +34,9 @@ buttonRandom.addEventListener("click", async () => {
   const arrMass = [];
   for (let i = 0; i < 100; i++) {
     const obj = {
-      name: carMarcs[getRandomNumber(carMarcs.length)],
+      name: `${carMarcs[getRandomNumber(carMarcs.length)]} ${
+        carModel[getRandomNumber(carModel.length - 1)]
+      }`,
       color: getRandomColorForCar(),
     };
     arrMass.push(obj);
@@ -42,11 +44,11 @@ buttonRandom.addEventListener("click", async () => {
   arrMass.map((e) => postData(e));
   await upDateGarage();
   await getGarage();
-  console.log(arrMass);
+  // console.log(arrMass);
 });
 
 buttonStartCars.addEventListener("click", async () => {
-  carsStorage.cars.map((elem) => startCarAnimation(elem.id.toString()));
+  carsStorage.cars.map(async (elem) => startCarAnimation(elem.id.toString()));
 });
 
 document
