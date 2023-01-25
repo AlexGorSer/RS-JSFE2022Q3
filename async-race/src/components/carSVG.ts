@@ -1,7 +1,7 @@
-export const carSVG = (color: string): string =>
+export const carSVG = (color: string, id: number): string =>
   `<svg version="1.0" xmlns="http://www.w3.org/2000/svg" 
   width="200" height="100" viewBox="0 0 1280.000000 640.000000"
-  preserveAspectRatio="xMidYMid meet">
+  preserveAspectRatio="xMidYMid meet" class="car-${id}">
  <metadata>
  Created by potrace 1.15, written by Peter Selinger 2001-2017
  </metadata>

@@ -1,16 +1,8 @@
 import { getCarsGarage } from "../API/Api";
-// import { IData } from "../types/interface";
 const { items: cars, carsCount: carsCount } = await getCarsGarage(1);
-// interface ICarsCount {
-//   carsPage: number;
-//   cars: IData[];
-//   carsCount: number | null;
-//   selectCar: {
-//     id: number;
-//     name: string;
-//     color: string;
-//   };
-// }
+
+const animation: { [key: number]: { id: number } } = {};
+
 export default {
   carsPage: 1,
   cars,
@@ -20,4 +12,5 @@ export default {
     name: "",
     color: "",
   },
+  animation,
 };

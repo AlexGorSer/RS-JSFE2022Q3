@@ -44,3 +44,28 @@ export const putData = async (id: number, body: TBody) => {
     body: JSON.stringify(body),
   });
 };
+
+export const getEngine = async (id: string, status: string) => {
+  const response = await fetch(
+    `${URL}${PATH.engine}?id=${id}&status=${status}`,
+    {
+      method: "PATCH",
+    }
+  );
+  // console.log(document.querySelector(`.car-${id}`));
+  // const targ = <HTMLElement>document.querySelector(`.car-${id}`);
+  // targ.style.translate = `1000px`;
+  // console.log(response);
+  // console.log(response.json().then((e) => console.log(e)));
+  return response.json();
+};
+
+export const driveCar = async (id: string) => {
+  const response = await fetch(`${URL}${PATH.engine}?id=${id}&status=drive`, {
+    method: "PATCH",
+  });
+
+  return response.status !== 200
+    ? { success: false }
+    : { ...(await response.json()) };
+};
