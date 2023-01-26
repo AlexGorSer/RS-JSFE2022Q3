@@ -93,6 +93,11 @@ export const clickCardButtons = async (event: Event) => {
   }
 
   if (target.classList.contains("cars-card-stope")) {
+    const stopeButton = <HTMLFormElement>(
+      document.querySelector(`.cars-card-stope.id-${target.id}`)
+    );
+
+    stopeButton.disabled = true;
     await getEngine(target.id, "stopped");
     resetCar(target.id);
   }

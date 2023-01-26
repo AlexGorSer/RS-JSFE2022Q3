@@ -23,10 +23,13 @@ const buttonRandom = document.createElement("button");
 const buttonStartCars = document.createElement("button");
 const resetButton = document.createElement("button");
 export const winners = document.createElement("button");
+
+const modal = document.createElement("div");
 document.body.appendChild(buttonRandom);
 document.body.appendChild(buttonStartCars);
 document.body.appendChild(resetButton);
 document.body.appendChild(winners);
+document.body.appendChild(modal);
 
 buttonRandom.textContent = "Create random cars";
 buttonStartCars.textContent = "Start Cars";
@@ -54,11 +57,13 @@ winners.addEventListener("click", async () => {
     });
   document.querySelector(".modal-pref")?.addEventListener("click", async () => {
     carsStorage.winnersPages--;
-    await getWinners(carsStorage.winnersPages);
+    const { items } = await getWinners(carsStorage.winnersPages);
+    carsStorage.winners = items;
   });
   document.querySelector(".modal-next")?.addEventListener("click", async () => {
     carsStorage.winnersPages++;
-    await getWinners(carsStorage.winnersPages);
+    const { items } = await getWinners(carsStorage.winnersPages);
+    carsStorage.winners = items;
   });
 });
 
