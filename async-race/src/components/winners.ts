@@ -23,9 +23,9 @@ export const tableModal = (): string => `<table>
   <th class="time">time</th>
 </tr>
 ${carsStorage.winners.map(
-  (elem) => `
+  (elem, index) => `
 <tr>
-<td>${elem.id}</td>
+<td>${index + 1}</td>
 <td>${carSVG(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     carsStorage.allCars.find((e) => e.id === elem.id)!.color,
