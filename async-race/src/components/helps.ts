@@ -1,4 +1,5 @@
 import {
+  createWinner,
   deleteCar,
   driveCar,
   getCarsGarage,
@@ -220,20 +221,24 @@ export const startRace = async () => {
     carsStorage.cars.map(async (elem) => startCarAnimation(elem.id.toString()))
   );
   const winObj = {
-    id: "",
+    id: 0,
     time: 0,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    wins: 1,
   };
   await prom.then((elem) => {
-    winObj.id = elem.id;
+    winObj.id = +elem.id;
     winObj.time = +(elem.time / 1000).toFixed(2);
   });
-
+  // console.log(carsStorage.winners.find((elem) => winObj.id === elem.id)?.wins);
   const isWinner = carsStorage.cars.filter((elem) => elem.id === +winObj.id);
+  // if (carsStorage.winners.includes(winObj)) console.log(true);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   Root.root.insertAdjacentHTML(
     "afterbegin",
     await winnerCar(isWinner[0], winObj)
   );
+  await createWinner(winObj);
 };
 
 export const resetCar = async (id: string) => {

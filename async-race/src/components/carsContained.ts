@@ -11,8 +11,7 @@ export const carsCard = (carName: string, carSVG: string, id: number): string =>
 ${carSVG}
 <div class="finish finish-${id}"><?xml version="1.0" encoding="iso-8859-1"?>
 <svg height="100px" width="100px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 20.695 20.695" xml:space="preserve">
-<g>
+	 viewBox="0 0 20.695 20.695" xml:space="preserve" style="transform: rotate(31deg)" >
 	<path style="fill:#030104;" d="M10.099,3.996l0.898,1.453L9.372,6.64L8.447,5.144L7.141,5.952L6.332,4.645L7.64,3.836l0.809,1.306
 		L10.099,3.996z M10.181,7.946L9.374,6.64L8.066,7.448l0.807,1.306L10.181,7.946z M17.667,5.115l-0.144,0.312
 		c-0.26,1.43-1.146,2.388-1.805,2.795c-1.426,0.881-2.903,0.353-2.964,0.331c-0.958-0.203-1.814-0.087-2.52,0.35

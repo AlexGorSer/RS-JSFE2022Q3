@@ -20,7 +20,7 @@ export const forms = (): string =>
 
 export const winnerCar = async (
   winnerCar: IData,
-  winObj: { id: string; time: number }
+  winObj: { id: number; time: number }
 ): Promise<string> =>
   `<div class="modal-car-winner-container">
 <p class="car-winner">

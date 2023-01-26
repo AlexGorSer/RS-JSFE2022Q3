@@ -1,10 +1,11 @@
-import { ICarsData, TBody } from "../types/interface";
+import { ICarsData, IWinners, IWinnersData, TBody } from "../types/interface";
 
 const URL = "http://127.0.0.1:3000";
 
 export const PATH = {
   garage: "/garage",
   engine: "/engine",
+  winners: "/winners",
 };
 
 export const getCarsGarage = async (page: number, limit = 7) => {
@@ -52,11 +53,7 @@ export const getEngine = async (id: string, status: string) => {
       method: "PATCH",
     }
   );
-  // console.log(document.querySelector(`.car-${id}`));
-  // const targ = <HTMLElement>document.querySelector(`.car-${id}`);
-  // targ.style.translate = `1000px`;
-  // console.log(response);
-  // console.log(response.json().then((e) => console.log(e)));
+
   return response.json();
 };
 
@@ -67,4 +64,31 @@ export const driveCar = async (id: string) => {
   return response.status !== 200
     ? { success: false }
     : { ...(await response.json()) };
+};
+
+export const getWinners = async (
+  page: number,
+  limit = 10,
+  sort = "null",
+  order = "null"
+) => {
+  const response = await fetch(
+    `${URL}${PATH.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`
+  );
+  const winner: IWinners = {
+    items: await response.json(),
+    winnersCount: response.headers.get("X-Total-Count"),
+  };
+
+  return winner;
+};
+
+export const createWinner = async (body: IWinnersData) => {
+  await fetch(`${URL}${PATH.winners}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
 };
