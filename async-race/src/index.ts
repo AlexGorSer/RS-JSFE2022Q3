@@ -34,16 +34,18 @@ buttonRandom.textContent = "Create random cars";
 buttonStartCars.textContent = "Start Cars";
 resetButton.textContent = "Reset";
 winners.textContent = "Winners";
+winners.disabled = true;
 resetButton.disabled = true;
 document.body.appendChild(Root.root);
 Root.root.classList.add(Root.className);
-alert("Сейчас делаю таблицу, надеюсь успею");
+
 getGarage();
 winners.addEventListener("click", async () => {
   const { items, winnersCount } = await getWinners(1);
   carsStorage.winners = items;
   carsStorage.winnersCount = winnersCount;
-  document.body.insertAdjacentHTML("afterbegin", winnersModal());
+  console.log(carsStorage.winners);
+  document.body.insertAdjacentHTML("afterbegin", await winnersModal());
 });
 
 buttonRandom.addEventListener("click", async () => {

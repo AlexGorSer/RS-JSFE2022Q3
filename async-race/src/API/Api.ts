@@ -1,4 +1,10 @@
-import { ICarsData, IWinners, IWinnersData, TBody } from "../types/interface";
+import {
+  ICarsData,
+  IWinData,
+  IWinners,
+  IWinnersData,
+  TBody,
+} from "../types/interface";
 
 const URL = "http://127.0.0.1:3000";
 
@@ -91,4 +97,29 @@ export const createWinner = async (body: IWinnersData) => {
     },
     body: JSON.stringify(body),
   });
+};
+
+export const updateWinners = async (body: IWinnersData, id: number) => {
+  await fetch(`${URL}${PATH.winners}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+};
+
+export const deletedWinner = async (id: string) => {
+  await fetch(`${URL}${PATH.winners}/${id}`, {
+    method: "DELETE",
+  });
+};
+
+export const getCar = async (id: number) => {
+  const res = await fetch(`${URL}${PATH.garage}/${id}`);
+  const winnersData: IWinData = {
+    item: await res.json(),
+  };
+
+  return winnersData.item.color;
 };

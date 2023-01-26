@@ -1,8 +1,9 @@
 import carsStorage from "../carsStorage/carsStorage";
 import { carSVG } from "./carSVG";
 
-export const winnersModal = () => `
+export const winnersModal = async () => `
 <div class="winners_modal-container">
+<button class="close-modal-button"> Close </button>
 <h2>Winners: ${carsStorage.winnersCount}</h2>
 <p>Page: ${1}</p>
 <table>
@@ -24,7 +25,7 @@ export const winnersModal = () => `
   )}</td>
   <td>${carsStorage.cars.find((e) => e.id === elem.id)?.name}</td>
   <td>${elem.wins}</td>
-  <td>${elem.time}</td>
+  <td>${elem.time}s</td>
   </tr>`
   )}
 </table>

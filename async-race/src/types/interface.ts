@@ -3,6 +3,9 @@ export interface IData {
   name: string;
   color: string;
 }
+export interface IWinData {
+  item: IData;
+}
 export interface ICarsData {
   items: IData[];
   carsCount: string | null;

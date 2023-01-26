@@ -1,11 +1,14 @@
 import {
   createWinner,
   deleteCar,
+  deletedWinner,
   driveCar,
+  getCar,
   getCarsGarage,
   getEngine,
   postData,
   putData,
+  updateWinners,
 } from "../API/Api";
 import carsStorage from "../carsStorage/carsStorage";
 import { carsCard, pageButtons } from "./carsContained";
@@ -67,6 +70,7 @@ export const clickCardButtons = async (event: Event) => {
   const target = <HTMLElement>event.target;
   if (target.classList.contains("cars-card-remove")) {
     await deleteCar(+target.id);
+    await deletedWinner(target.id);
     await upDateGarage();
     Root.root.innerHTML = "";
     getGarage();
@@ -88,6 +92,7 @@ export const clickCardButtons = async (event: Event) => {
   }
 
   if (target.classList.contains("cars-card-stope")) {
+    await getEngine(target.id, "stopped");
     resetCar(target.id);
   }
 };
@@ -230,9 +235,19 @@ export const startRace = async () => {
     winObj.id = +elem.id;
     winObj.time = +(elem.time / 1000).toFixed(2);
   });
-  // console.log(carsStorage.winners.find((elem) => winObj.id === elem.id)?.wins);
   const isWinner = carsStorage.cars.filter((elem) => elem.id === +winObj.id);
-  // if (carsStorage.winners.includes(winObj)) console.log(true);
+  const find = carsStorage.winners.filter(
+    (e) => e.id === carsStorage.cars.find((elem) => winObj.id === elem.id)?.id
+  )[0];
+  if (!!find) {
+    winObj.wins = find.wins + 1;
+    winObj.time = find.time < winObj.time ? find.time : winObj.time;
+    await updateWinners(winObj, winObj.id);
+  }
+  // const { item: winnersData } = await getCar(winObj.id);
+
+  console.log(await getCar(winObj.id));
+
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   Root.root.insertAdjacentHTML(
     "afterbegin",
