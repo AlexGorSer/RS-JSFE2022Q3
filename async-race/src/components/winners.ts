@@ -6,6 +6,8 @@ export const winnersModal = async () => `
 <button class="close-modal-button"> Close </button>
 <h2>Winners: ${carsStorage.winnersCount}</h2>
 <p>Page: ${1}</p>
+<button class="modal-pref"><=</button>
+<button class="modal-next">=></button>
 <table>
   <tr>
     <th>Number</th>
@@ -20,10 +22,10 @@ export const winnersModal = async () => `
   <td>${elem.id}</td>
   <td>${carSVG(
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    carsStorage.cars.find((e) => e.id === elem.id)!.color,
+    carsStorage.allCars.find((e) => e.id === elem.id)!.color,
     elem.id
   )}</td>
-  <td>${carsStorage.cars.find((e) => e.id === elem.id)?.name}</td>
+  <td>${carsStorage.allCars.find((e) => e.id === elem.id)?.name}</td>
   <td>${elem.wins}</td>
   <td>${elem.time}s</td>
   </tr>`

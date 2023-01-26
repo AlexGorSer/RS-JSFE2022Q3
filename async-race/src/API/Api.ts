@@ -115,11 +115,11 @@ export const deletedWinner = async (id: string) => {
   });
 };
 
-export const getCar = async (id: number) => {
-  const res = await fetch(`${URL}${PATH.garage}/${id}`);
+export const getAllCar = async () => {
+  const res = await fetch(`${URL}${PATH.garage}`);
   const winnersData: IWinData = {
     item: await res.json(),
   };
 
-  return winnersData.item.color;
+  return winnersData;
 };

@@ -1,19 +1,17 @@
-import { getWinners, postData } from "./API/Api";
+import { getWinners } from "./API/Api";
 import { winnersModal } from "./components/winners";
-import { getRandomColorForCar } from "./components/carSVG";
-import { carMarcs, carModel } from "./components/carsContained";
+
 import { Root } from "./components/Root";
 import { forms } from "./components/Forms";
 import {
   clickCardButtons,
+  createRandomCar,
   getGarage,
   getPages,
-  getRandomNumber,
   postCar,
   putCar,
   resetCar,
   startRace,
-  upDateGarage,
 } from "./components/helps";
 
 import "./style.scss";
@@ -24,7 +22,7 @@ document.body.insertAdjacentHTML("beforeend", forms());
 const buttonRandom = document.createElement("button");
 const buttonStartCars = document.createElement("button");
 const resetButton = document.createElement("button");
-const winners = document.createElement("button");
+export const winners = document.createElement("button");
 document.body.appendChild(buttonRandom);
 document.body.appendChild(buttonStartCars);
 document.body.appendChild(resetButton);
@@ -34,7 +32,7 @@ buttonRandom.textContent = "Create random cars";
 buttonStartCars.textContent = "Start Cars";
 resetButton.textContent = "Reset";
 winners.textContent = "Winners";
-winners.disabled = true;
+
 resetButton.disabled = true;
 document.body.appendChild(Root.root);
 Root.root.classList.add(Root.className);
@@ -46,23 +44,26 @@ winners.addEventListener("click", async () => {
   carsStorage.winnersCount = winnersCount;
   console.log(carsStorage.winners);
   document.body.insertAdjacentHTML("afterbegin", await winnersModal());
+  document
+    .querySelector(".close-modal-button")
+    ?.addEventListener("click", () => {
+      document.body.removeChild(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        document.querySelector(".winners_modal-container")!
+      );
+    });
+  document.querySelector(".modal-pref")?.addEventListener("click", async () => {
+    carsStorage.winnersPages--;
+    await getWinners(carsStorage.winnersPages);
+  });
+  document.querySelector(".modal-next")?.addEventListener("click", async () => {
+    carsStorage.winnersPages++;
+    await getWinners(carsStorage.winnersPages);
+  });
 });
 
 buttonRandom.addEventListener("click", async () => {
-  const arrMass = [];
-  for (let i = 0; i < 100; i++) {
-    const obj = {
-      name: `${carMarcs[getRandomNumber(carMarcs.length)]} ${
-        carModel[getRandomNumber(carModel.length - 1)]
-      }`,
-      color: getRandomColorForCar(),
-    };
-    arrMass.push(obj);
-  }
-  arrMass.map((e) => postData(e));
-  await upDateGarage();
-  await getGarage();
-  // console.log(arrMass);
+  createRandomCar();
 });
 
 resetButton.addEventListener("click", async () => {
@@ -76,6 +77,7 @@ resetButton.addEventListener("click", async () => {
 buttonStartCars.addEventListener("click", async () => {
   buttonStartCars.disabled = true;
   resetButton.disabled = true;
+  winners.disabled = true;
   await startRace();
   resetButton.disabled = false;
 });

@@ -3,7 +3,7 @@ import {
   deleteCar,
   deletedWinner,
   driveCar,
-  getCar,
+  getAllCar,
   getCarsGarage,
   getEngine,
   postData,
@@ -11,10 +11,11 @@ import {
   updateWinners,
 } from "../API/Api";
 import carsStorage from "../carsStorage/carsStorage";
-import { carsCard, pageButtons } from "./carsContained";
-import { carSVG } from "./carSVG";
+import { carMarcs, carModel, carsCard, pageButtons } from "./carsContained";
+import { carSVG, getRandomColorForCar } from "./carSVG";
 import { winnerCar } from "./Forms";
 import { Root } from "./Root";
+import { winners } from "../index";
 
 export const getRandomNumber = (max: number, min = 0) => {
   min = Math.ceil(min);
@@ -246,7 +247,7 @@ export const startRace = async () => {
   }
   // const { item: winnersData } = await getCar(winObj.id);
 
-  console.log(await getCar(winObj.id));
+  console.log(await getAllCar());
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   Root.root.insertAdjacentHTML(
@@ -254,6 +255,7 @@ export const startRace = async () => {
     await winnerCar(isWinner[0], winObj)
   );
   await createWinner(winObj);
+  winners.disabled = false;
 };
 
 export const resetCar = async (id: string) => {
@@ -270,4 +272,22 @@ export const resetCar = async (id: string) => {
   const carSVGTarget = <HTMLElement>document.querySelector(`.car-${id}`);
   window.cancelAnimationFrame(carsStorage.animationStorageID[+id].id);
   carSVGTarget.style.translate = `0px`;
+};
+
+export const createRandomCar = async () => {
+  const arrMass = [];
+  for (let i = 0; i < 100; i++) {
+    const obj = {
+      name: `${carMarcs[getRandomNumber(carMarcs.length)]} ${
+        carModel[getRandomNumber(carModel.length - 1)]
+      }`,
+      color: getRandomColorForCar(),
+    };
+    arrMass.push(obj);
+  }
+  arrMass.map((e) => postData(e));
+  await upDateGarage();
+  await getGarage();
+  const { item: winnersData } = await getAllCar();
+  carsStorage.allCars = winnersData;
 };

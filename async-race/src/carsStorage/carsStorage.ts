@@ -1,7 +1,8 @@
-import { getCarsGarage, getWinners } from "../API/Api";
+import { getCarsGarage, getWinners, getAllCar } from "../API/Api";
 const { items: cars, carsCount: carsCount } = await getCarsGarage(1);
 
 const { items: winners, winnersCount: winnersCount } = await getWinners(1);
+const { item: allCars } = await getAllCar();
 
 const animationStorageID: { [key: number]: { id: number } } = {};
 
@@ -17,6 +18,8 @@ export default {
   animationStorageID,
   winners,
   winnersCount,
+  winnersPages: 1,
+  allCars,
   sortby: "null",
   order: "null",
 };

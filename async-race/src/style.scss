@@ -59,7 +59,18 @@ h1 {
     z-index: 1;
   }
 }
+.winners_modal-container {
+  position: absolute;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 200vh;
 
+  background-color: white;
+  z-index: 5;
+}
 table {
   border: 1px solid black;
   width: 600px;

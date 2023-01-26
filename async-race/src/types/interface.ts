@@ -4,7 +4,7 @@ export interface IData {
   color: string;
 }
 export interface IWinData {
-  item: IData;
+  item: IData[];
 }
 export interface ICarsData {
   items: IData[];
