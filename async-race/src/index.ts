@@ -12,6 +12,7 @@ import {
   postCar,
   putCar,
   resetCar,
+  sortElem,
   startRace,
 } from "./components/helps";
 
@@ -43,7 +44,12 @@ Root.root.classList.add(Root.className);
 
 getGarage();
 winners.addEventListener("click", async () => {
-  const { items, winnersCount } = await getWinners(1);
+  const { items, winnersCount } = await getWinners(
+    carsStorage.winnersPages,
+    10,
+    carsStorage.sortby,
+    carsStorage.order
+  );
   carsStorage.winners = items;
   carsStorage.winnersCount = winnersCount;
 
@@ -65,57 +71,8 @@ winners.addEventListener("click", async () => {
     .querySelector(".winners_modal-container")
     ?.addEventListener("click", async (e) => {
       const target = <HTMLElement>e.target;
-      const page = +carsStorage.winnersCount! / 10;
-
-      if (target.classList.contains("modal-pref")) {
-        if (1 < carsStorage.winnersPages) {
-          carsStorage.winnersPages--;
-          document.querySelector(".page")!.textContent =
-            carsStorage.winnersPages.toString();
-          document.querySelector(".table-container")!.innerHTML = "";
-          const { items } = await getWinners(carsStorage.winnersPages);
-          carsStorage.winners = items;
-          document.querySelector(".table-container")!.innerHTML = tableModal();
-        }
-      }
-
-      if (target.classList.contains("modal-next")) {
-        if (page > carsStorage.winnersPages) {
-          document.querySelector(".table-container")!.innerHTML = "";
-          carsStorage.winnersPages++;
-          document.querySelector(".page")!.textContent =
-            carsStorage.winnersPages.toString();
-          const { items } = await getWinners(carsStorage.winnersPages);
-          carsStorage.winners = items;
-          document.querySelector(".table-container")!.innerHTML = tableModal();
-        }
-      }
-      if (target.classList.contains("win")) {
-        carsStorage.sortby === "ASC"
-          ? (carsStorage.sortby = "DESC")
-          : (carsStorage.sortby = "ASC");
-        const { items } = await getWinners(
-          carsStorage.winnersPages,
-          10,
-          "wins",
-          carsStorage.sortby
-        );
-        carsStorage.winners = items;
-        document.querySelector(".table-container")!.innerHTML = tableModal();
-      }
-      if (target.classList.contains("time")) {
-        carsStorage.order === "ASC"
-          ? (carsStorage.order = "DESC")
-          : (carsStorage.order = "ASC");
-        const { items } = await getWinners(
-          carsStorage.winnersPages,
-          10,
-          "time",
-          carsStorage.order
-        );
-        carsStorage.winners = items;
-        document.querySelector(".table-container")!.innerHTML = tableModal();
-      }
+      // const page = +carsStorage.winnersCount! / 10;
+      sortElem(target);
     });
 });
 

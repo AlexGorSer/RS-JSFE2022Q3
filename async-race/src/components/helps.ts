@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   createWinner,
   deleteCar,
@@ -6,6 +7,7 @@ import {
   getAllCar,
   getCarsGarage,
   getEngine,
+  getWinners,
   postData,
   putData,
   updateWinners,
@@ -16,6 +18,7 @@ import { carSVG, getRandomColorForCar } from "./carSVG";
 import { winnerCar } from "./Forms";
 import { Root } from "./Root";
 import { winners } from "../index";
+import { tableModal } from "./winners";
 
 export const getRandomNumber = (max: number, min = 0) => {
   min = Math.ceil(min);
@@ -295,4 +298,70 @@ export const createRandomCar = async () => {
   await getGarage();
   const { item: winnersData } = await getAllCar();
   carsStorage.allCars = winnersData;
+};
+
+export const sortElem = async (target: HTMLElement) => {
+  const page = +carsStorage.winnersCount! / 10;
+  if (target.classList.contains("modal-pref")) {
+    if (1 < carsStorage.winnersPages) {
+      carsStorage.winnersPages--;
+      document.querySelector(".page")!.textContent =
+        carsStorage.winnersPages.toString();
+      document.querySelector(".table-container")!.innerHTML = "";
+      const { items } = await getWinners(
+        carsStorage.winnersPages,
+        10,
+        carsStorage.sortby,
+        carsStorage.order
+      );
+      carsStorage.winners = items;
+      document.querySelector(".table-container")!.innerHTML = tableModal();
+    }
+  }
+
+  if (target.classList.contains("modal-next")) {
+    if (page > carsStorage.winnersPages) {
+      document.querySelector(".table-container")!.innerHTML = "";
+      carsStorage.winnersPages++;
+      document.querySelector(".page")!.textContent =
+        carsStorage.winnersPages.toString();
+      const { items } = await getWinners(
+        carsStorage.winnersPages,
+        10,
+        carsStorage.sortby,
+        carsStorage.order
+      );
+      carsStorage.winners = items;
+      document.querySelector(".table-container")!.innerHTML = tableModal();
+    }
+  }
+  if (target.classList.contains("win")) {
+    carsStorage.order === "ASC"
+      ? (carsStorage.order = "DESC")
+      : (carsStorage.order = "ASC");
+    carsStorage.sortby = "wins";
+    const { items } = await getWinners(
+      carsStorage.winnersPages,
+      10,
+      carsStorage.sortby,
+      carsStorage.order
+    );
+    carsStorage.winners = items;
+    document.querySelector(".table-container")!.innerHTML = tableModal();
+  }
+  if (target.classList.contains("time")) {
+    carsStorage.order === "ASC"
+      ? (carsStorage.order = "DESC")
+      : (carsStorage.order = "ASC");
+
+    carsStorage.sortby = "time";
+    const { items } = await getWinners(
+      carsStorage.winnersPages,
+      10,
+      carsStorage.sortby,
+      carsStorage.order
+    );
+    carsStorage.winners = items;
+    document.querySelector(".table-container")!.innerHTML = tableModal();
+  }
 };
