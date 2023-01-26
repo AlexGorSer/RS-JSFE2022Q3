@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { getWinners } from "./API/Api";
-import { winnersModal } from "./components/winners";
+import { tableModal, winnersModal } from "./components/winners";
 
 import { Root } from "./components/Root";
 import { forms } from "./components/Forms";
@@ -45,8 +46,12 @@ winners.addEventListener("click", async () => {
   const { items, winnersCount } = await getWinners(1);
   carsStorage.winners = items;
   carsStorage.winnersCount = winnersCount;
-  console.log(carsStorage.winners);
-  document.body.insertAdjacentHTML("afterbegin", await winnersModal());
+
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    await winnersModal(tableModal())
+  );
+
   document
     .querySelector(".close-modal-button")
     ?.addEventListener("click", () => {
@@ -55,16 +60,63 @@ winners.addEventListener("click", async () => {
         document.querySelector(".winners_modal-container")!
       );
     });
-  document.querySelector(".modal-pref")?.addEventListener("click", async () => {
-    carsStorage.winnersPages--;
-    const { items } = await getWinners(carsStorage.winnersPages);
-    carsStorage.winners = items;
-  });
-  document.querySelector(".modal-next")?.addEventListener("click", async () => {
-    carsStorage.winnersPages++;
-    const { items } = await getWinners(carsStorage.winnersPages);
-    carsStorage.winners = items;
-  });
+
+  document
+    .querySelector(".winners_modal-container")
+    ?.addEventListener("click", async (e) => {
+      const target = <HTMLElement>e.target;
+      const page = +carsStorage.winnersCount! / 10;
+
+      if (target.classList.contains("modal-pref")) {
+        if (1 < carsStorage.winnersPages) {
+          carsStorage.winnersPages--;
+          document.querySelector(".page")!.textContent =
+            carsStorage.winnersPages.toString();
+          document.querySelector(".table-container")!.innerHTML = "";
+          const { items } = await getWinners(carsStorage.winnersPages);
+          carsStorage.winners = items;
+          document.querySelector(".table-container")!.innerHTML = tableModal();
+        }
+      }
+
+      if (target.classList.contains("modal-next")) {
+        if (page > carsStorage.winnersPages) {
+          document.querySelector(".table-container")!.innerHTML = "";
+          carsStorage.winnersPages++;
+          document.querySelector(".page")!.textContent =
+            carsStorage.winnersPages.toString();
+          const { items } = await getWinners(carsStorage.winnersPages);
+          carsStorage.winners = items;
+          document.querySelector(".table-container")!.innerHTML = tableModal();
+        }
+      }
+      if (target.classList.contains("win")) {
+        carsStorage.sortby === "ASC"
+          ? (carsStorage.sortby = "DESC")
+          : (carsStorage.sortby = "ASC");
+        const { items } = await getWinners(
+          carsStorage.winnersPages,
+          10,
+          "wins",
+          carsStorage.sortby
+        );
+        carsStorage.winners = items;
+        document.querySelector(".table-container")!.innerHTML = tableModal();
+      }
+      if (target.classList.contains("time")) {
+        carsStorage.order === "ASC"
+          ? (carsStorage.order = "DESC")
+          : (carsStorage.order = "ASC");
+        const { items } = await getWinners(
+          carsStorage.winnersPages,
+          10,
+          "time",
+          carsStorage.order
+        );
+        carsStorage.winners = items;
+        document.querySelector(".table-container")!.innerHTML = tableModal();
+      }
+    });
 });
 
 buttonRandom.addEventListener("click", async () => {

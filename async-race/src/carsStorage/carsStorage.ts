@@ -20,6 +20,6 @@ export default {
   winnersCount,
   winnersPages: 1,
   allCars,
-  sortby: "null",
-  order: "null",
+  sortby: "ASC",
+  order: "ASC",
 };
