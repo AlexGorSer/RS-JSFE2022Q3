@@ -64,7 +64,6 @@ export const driveCar = async (id: string) => {
   const response = await fetch(`${URL}${PATH.engine}?id=${id}&status=drive`, {
     method: "PATCH",
   });
-
   return response.status !== 200
     ? { success: false }
     : { ...(await response.json()) };

@@ -1,3 +1,5 @@
+import { IData } from "../types/interface";
+
 export const forms = (): string =>
   `<div class="cars_cards-buttons">
   <h2>Create new Car</h2>
@@ -14,4 +16,14 @@ export const forms = (): string =>
     <label for="car-color-patch">Color</label>
     <input type="submit" value="submit">
   </form>
+</div>`;
+
+export const winnerCar = async (
+  winnerCar: IData,
+  winObj: { id: string; time: number }
+): Promise<string> =>
+  `<div class="modal-car-winner-container">
+<p class="car-winner">
+  ${winnerCar.name} is win! ${winObj.time} seconds
+</p>
 </div>`;

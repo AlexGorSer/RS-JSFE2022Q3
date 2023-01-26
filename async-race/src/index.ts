@@ -11,23 +11,30 @@ import {
   getRandomNumber,
   postCar,
   putCar,
-  startCarAnimation,
+  resetCar,
+  startRace,
   upDateGarage,
 } from "./components/helps";
 
 import "./style.scss";
 import carsStorage from "./carsStorage/carsStorage";
 
-// const svg = document.createElement("div");
 document.body.insertAdjacentHTML("beforeend", forms());
+
 const buttonRandom = document.createElement("button");
 const buttonStartCars = document.createElement("button");
+const resetButton = document.createElement("button");
 document.body.appendChild(buttonRandom);
 document.body.appendChild(buttonStartCars);
+document.body.appendChild(resetButton);
+
 buttonRandom.textContent = "Create random cars";
 buttonStartCars.textContent = "Start Cars";
+resetButton.textContent = "Reset";
+
 document.body.appendChild(Root.root);
 Root.root.classList.add(Root.className);
+
 getGarage();
 
 buttonRandom.addEventListener("click", async () => {
@@ -47,8 +54,14 @@ buttonRandom.addEventListener("click", async () => {
   // console.log(arrMass);
 });
 
+resetButton.addEventListener("click", async () => {
+  carsStorage.cars.map((elem) => resetCar(elem.id.toString()));
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  document.querySelector(".modal-car-winner-container")!.innerHTML = "";
+});
+
 buttonStartCars.addEventListener("click", async () => {
-  carsStorage.cars.map(async (elem) => startCarAnimation(elem.id.toString()));
+  startRace();
 });
 
 document

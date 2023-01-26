@@ -9,6 +9,7 @@ import {
 import carsStorage from "../carsStorage/carsStorage";
 import { carsCard, pageButtons } from "./carsContained";
 import { carSVG } from "./carSVG";
+import { winnerCar } from "./Forms";
 import { Root } from "./Root";
 
 export const getRandomNumber = (max: number, min = 0) => {
@@ -86,23 +87,7 @@ export const clickCardButtons = async (event: Event) => {
   }
 
   if (target.classList.contains("cars-card-stope")) {
-    // const foundCar = carsStorage.cars.filter((e) => e.id === +target.id);
-    const startButton = <HTMLFormElement>(
-      document.querySelector(`.cars-card-start.id-${target.id}`)
-    );
-    const stopeButton = <HTMLFormElement>(
-      document.querySelector(`.cars-card-stope.id-${target.id}`)
-    );
-
-    startButton.disabled = false;
-    stopeButton.disabled = true;
-    getEngine(target.id, "stopped");
-    const carSVGTarget = <HTMLElement>(
-      document.querySelector(`.car-${target.id}`)
-    );
-    window.cancelAnimationFrame(carsStorage.animationStorageID[+target.id].id);
-    carSVGTarget.style.translate = `0px`;
-    // console.log(target.id, foundCar[0]);
+    resetCar(target.id);
   }
 };
 export const upDateGarage = async () => {
@@ -221,8 +206,48 @@ export const startCarAnimation = async (id: string) => {
   // console.log(state);
   // console.log(velocity, distance);
   const { success } = await driveCar(id);
-  console.log(carsStorage.animationStorageID);
+  // console.log(carsStorage.animationStorageID);
 
-  if (!success)
+  if (!success) {
     window.cancelAnimationFrame(carsStorage.animationStorageID[+id].id);
+    throw new Error("car is stope");
+  }
+  return { id, time };
+};
+
+export const startRace = async () => {
+  const prom = Promise.any(
+    carsStorage.cars.map(async (elem) => startCarAnimation(elem.id.toString()))
+  );
+  const winObj = {
+    id: "",
+    time: 0,
+  };
+  await prom.then((elem) => {
+    winObj.id = elem.id;
+    winObj.time = +(elem.time / 1000).toFixed(2);
+  });
+
+  const isWinner = carsStorage.cars.filter((elem) => elem.id === +winObj.id);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  Root.root.insertAdjacentHTML(
+    "afterbegin",
+    await winnerCar(isWinner[0], winObj)
+  );
+};
+
+export const resetCar = async (id: string) => {
+  const startButton = <HTMLFormElement>(
+    document.querySelector(`.cars-card-start.id-${id}`)
+  );
+  const stopeButton = <HTMLFormElement>(
+    document.querySelector(`.cars-card-stope.id-${id}`)
+  );
+
+  startButton.disabled = false;
+  stopeButton.disabled = true;
+  getEngine(id, "stopped");
+  const carSVGTarget = <HTMLElement>document.querySelector(`.car-${id}`);
+  window.cancelAnimationFrame(carsStorage.animationStorageID[+id].id);
+  carSVGTarget.style.translate = `0px`;
 };
