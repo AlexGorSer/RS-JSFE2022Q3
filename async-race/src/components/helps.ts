@@ -20,13 +20,13 @@ import { Root } from "./Root";
 import { winners } from "../index";
 import { tableModal } from "./winners";
 
-export const getRandomNumber = (max: number, min = 0) => {
+export const getRandomNumber = (max: number, min = 0): number => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const getGarage = async () => {
+export const getGarage = async (): Promise<void> => {
   Root.root.innerHTML = "";
   const page = document.createElement("h2");
   Root.root.appendChild(page);
@@ -45,7 +45,7 @@ export const getGarage = async () => {
   );
 };
 
-export const getPages = async (target: HTMLElement) => {
+export const getPages = async (target: HTMLElement): Promise<void> => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const page = +carsStorage.carsCount! / 7;
   if (target.classList.contains("next")) {
@@ -70,7 +70,7 @@ export const getPages = async (target: HTMLElement) => {
   }
 };
 
-export const clickCardButtons = async (event: Event) => {
+export const clickCardButtons = async (event: Event): Promise<void> => {
   const target = <HTMLElement>event.target;
   if (target.classList.contains("cars-card-remove")) {
     await deleteCar(+target.id);
@@ -105,7 +105,7 @@ export const clickCardButtons = async (event: Event) => {
     resetCar(target.id);
   }
 };
-export const upDateGarage = async () => {
+export const upDateGarage = async (): Promise<void> => {
   const { items, carsCount } = await getCarsGarage(carsStorage.carsPage);
   carsStorage.cars = items;
   carsStorage.carsCount = carsCount;
@@ -116,7 +116,7 @@ export const upDateGarage = async () => {
   // console.log(carsStorage.cars, carsStorage.carsCount);
 };
 
-export const postCar = async (e: Event) => {
+export const postCar = async (e: Event): Promise<void> => {
   e.preventDefault();
   const ref = <HTMLFormElement>e.target;
 
@@ -133,7 +133,7 @@ export const postCar = async (e: Event) => {
   ref.text.value = "";
   ref.color.value = "#000000";
 };
-export const putCar = async (e: Event) => {
+export const putCar = async (e: Event): Promise<void> => {
   e.preventDefault();
   const ref = <HTMLFormElement>e.target;
 
@@ -156,7 +156,7 @@ export const carAnimation = (
   carTarget: HTMLElement,
   distanceBetweenElem: number,
   time: number
-) => {
+): { id: number } => {
   const target = carTarget;
   let start: number | null = null;
   const state = { id: 1 };
@@ -180,7 +180,7 @@ export const carAnimation = (
 export const getBetweenElement = (
   firstElem: HTMLElement,
   secondElem: HTMLElement
-) => {
+): number => {
   const start =
     firstElem.getBoundingClientRect().x +
     firstElem.getBoundingClientRect().width / 2 -
@@ -192,7 +192,9 @@ export const getBetweenElement = (
   return finish - start;
 };
 
-export const startCarAnimation = async (id: string) => {
+export const startCarAnimation = async (
+  id: string
+): Promise<{ id: string; time: number }> => {
   const { velocity, distance } = await getEngine(id, "started");
   const startButton = <HTMLFormElement>(
     document.querySelector(`.cars-card-start.id-${id}`)
@@ -230,7 +232,7 @@ export const startCarAnimation = async (id: string) => {
   return { id, time };
 };
 
-export const startRace = async () => {
+export const startRace = async (): Promise<void> => {
   const prom = Promise.any(
     carsStorage.cars.map(async (elem) => startCarAnimation(elem.id.toString()))
   );
@@ -266,7 +268,7 @@ export const startRace = async () => {
   winners.disabled = false;
 };
 
-export const resetCar = async (id: string) => {
+export const resetCar = async (id: string): Promise<void> => {
   const startButton = <HTMLFormElement>(
     document.querySelector(`.cars-card-start.id-${id}`)
   );
@@ -282,7 +284,7 @@ export const resetCar = async (id: string) => {
   carSVGTarget.style.translate = `0px`;
 };
 
-export const createRandomCar = async () => {
+export const createRandomCar = async (): Promise<void> => {
   const arrMass = [];
   for (let i = 0; i < 100; i++) {
     const obj = {
@@ -300,7 +302,7 @@ export const createRandomCar = async () => {
   carsStorage.allCars = winnersData;
 };
 
-export const sortElem = async (target: HTMLElement) => {
+export const sortElem = async (target: HTMLElement): Promise<void> => {
   const page = +carsStorage.winnersCount! / 10;
   if (target.classList.contains("modal-pref")) {
     if (1 < carsStorage.winnersPages) {

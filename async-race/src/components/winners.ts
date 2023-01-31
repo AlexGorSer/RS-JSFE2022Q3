@@ -1,7 +1,7 @@
 import carsStorage from "../carsStorage/carsStorage";
 import { carSVG } from "./carSVG";
 
-export const winnersModal = async (table: string) => `
+export const winnersModal = async (table: string): Promise<string> => `
 <div class="winners_modal-container">
 <button class="close-modal-button"> Close </button>
 <h2>Winners: ${carsStorage.winnersCount}</h2>

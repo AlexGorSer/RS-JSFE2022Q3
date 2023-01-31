@@ -14,7 +14,10 @@ export const PATH = {
   winners: "/winners",
 };
 
-export const getCarsGarage = async (page: number, limit = 7) => {
+export const getCarsGarage = async (
+  page: number,
+  limit = 7
+): Promise<ICarsData> => {
   const res = await fetch(`${URL}${PATH.garage}?_page=${page}&_limit=${limit}`);
   const carsData: ICarsData = {
     items: await res.json(),
@@ -23,7 +26,7 @@ export const getCarsGarage = async (page: number, limit = 7) => {
   return carsData;
 };
 
-export const postData = async (body: TBody) => {
+export const postData = async (body: TBody): Promise<void> => {
   await fetch(`${URL}${PATH.garage}`, {
     method: "POST",
     headers: {
@@ -33,7 +36,7 @@ export const postData = async (body: TBody) => {
   });
 };
 
-export const deleteCar = async (id: number) => {
+export const deleteCar = async (id: number): Promise<void> => {
   const resp = await fetch(`${URL}${PATH.garage}/${id}`, {
     method: "DELETE",
   });
@@ -42,7 +45,7 @@ export const deleteCar = async (id: number) => {
     : console.error(new Error("Fast click"));
 };
 
-export const putData = async (id: number, body: TBody) => {
+export const putData = async (id: number, body: TBody): Promise<void> => {
   await fetch(`${URL}${PATH.garage}/${id}`, {
     method: "PUT",
     headers: {
@@ -52,7 +55,10 @@ export const putData = async (id: number, body: TBody) => {
   });
 };
 
-export const getEngine = async (id: string, status: string) => {
+export const getEngine = async (
+  id: string,
+  status: string
+): Promise<{ velocity: number; distance: number }> => {
   const response = await fetch(
     `${URL}${PATH.engine}?id=${id}&status=${status}`,
     {
@@ -63,7 +69,7 @@ export const getEngine = async (id: string, status: string) => {
   return response.json();
 };
 
-export const driveCar = async (id: string) => {
+export const driveCar = async (id: string): Promise<{ success: boolean }> => {
   const response = await fetch(`${URL}${PATH.engine}?id=${id}&status=drive`, {
     method: "PATCH",
   });
@@ -77,7 +83,7 @@ export const getWinners = async (
   limit = 10,
   sort = "null",
   order = "null"
-) => {
+): Promise<IWinners> => {
   const response = await fetch(
     `${URL}${PATH.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`
   );
@@ -89,7 +95,7 @@ export const getWinners = async (
   return winner;
 };
 
-export const createWinner = async (body: IWinnersData) => {
+export const createWinner = async (body: IWinnersData): Promise<void> => {
   await fetch(`${URL}${PATH.winners}`, {
     method: "POST",
     headers: {
@@ -99,7 +105,10 @@ export const createWinner = async (body: IWinnersData) => {
   });
 };
 
-export const updateWinners = async (body: IWinnersData, id: number) => {
+export const updateWinners = async (
+  body: IWinnersData,
+  id: number
+): Promise<void> => {
   await fetch(`${URL}${PATH.winners}/${id}`, {
     method: "PUT",
     headers: {
@@ -109,13 +118,13 @@ export const updateWinners = async (body: IWinnersData, id: number) => {
   });
 };
 
-export const deletedWinner = async (id: string) => {
+export const deletedWinner = async (id: string): Promise<void> => {
   await fetch(`${URL}${PATH.winners}/${id}`, {
     method: "DELETE",
   });
 };
 
-export const getAllCar = async () => {
+export const getAllCar = async (): Promise<IWinData> => {
   const res = await fetch(`${URL}${PATH.garage}`);
   const winnersData: IWinData = {
     item: await res.json(),

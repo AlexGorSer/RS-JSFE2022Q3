@@ -102,6 +102,6 @@ export const carSVG = (color: string, id: number): string =>
  </svg>
  `;
 
-export const getRandomColorForCar = () => {
+export const getRandomColorForCar = (): string => {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
